@@ -10,7 +10,41 @@
  **/
 declare function call(...arguments: any[]): any;
 
-// TODO: Fix types
+interface FetchRemoteOptions {
+  // Name of the queue to use. Any name can be used. If not set, the queue name is "default". Requests in the same queue are processed in order, one at a time.
+  queueName?: string;
+
+  // Number of times to retry if the remote host does not respond. (Defaults to 10)
+  connectionAttempts?: number;
+
+  // Number of milliseconds each connection attempt will take before timing out. (Defaults to 10000)
+  connectTimeout?: number;
+
+  // A string specifying any data you want to send to the remote HTTP server.
+  postData?: string;
+
+  // A boolean specifying if the data is text, or binary. (Defaults to false)
+  postIsBinary?: boolean;
+
+  // A string specifying the request method. (Defaults to GET or POST)
+  method?: string;
+
+  // A table containing HTTP request headers. e.g.{ Pragma="no-cache" }
+  headers?: { [key: string]: string }
+
+  // An integer limiting the number of HTTP redirections to automatically follow. (Defaults to 8)
+  maxRedirects?: number;
+
+  // A string specifying the username for protected pages.
+  username?: string;
+
+  // A string specifying the password for protected pages.
+  password?: string;
+
+  // A table containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
+  formFields: { [key: string]: string };
+}
+
 /**
  * This function allows you to post and receive data from HTTP servers.
  * The calls are asynchronous so you do not get an immediate result from the call, instead a callback function you specify is called when the download completes.
@@ -25,9 +59,8 @@ declare function call(...arguments: any[]): any;
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
  * @see https://wiki.mtasa.com/wiki/FetchRemote
  **/
-declare function fetchRemote(URL: string, options: object, callbackFunction: SimpleHandler, callbackArguments?: object): object | false;
+declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackFunction: SimpleHandler, callbackArguments?: any[]): object | false;
 
-// TODO: Fix types
 /**
  * This function allows you to post and receive data from HTTP servers.
  * The calls are asynchronous so you do not get an immediate result from the call, instead a callback function you specify is called when the download completes.
@@ -41,7 +74,7 @@ declare function fetchRemote(URL: string, options: object, callbackFunction: Sim
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
  * @see https://wiki.mtasa.com/wiki/FetchRemote
  **/
-declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callbackArguments?: object): object | false;
+declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callbackArguments?: any[]): object | false;
 
 /**
  * This function is used to return the root node of a configuration file. Config files must be predefined in a resource's meta file. An alternative way to load XML files is to use xmlLoadFile.
@@ -60,7 +93,6 @@ declare function getResourceConfig(filePath: string): XML | false;
  **/
 declare function getResourceDynamicElementRoot(theResource: Resource): Element | false;
 
-// TODO: Fix types
 /**
  * Returns a table containing the names of the functions that a resource exports.
  * It will return the exports of the current resource if there is no argument passed in.
@@ -68,7 +100,7 @@ declare function getResourceDynamicElementRoot(theResource: Resource): Element |
  * @returns Returns a table of function names if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetResourceExportedFunctions
  **/
-declare function getResourceExportedFunctions(theResource?: Resource): object | false;
+declare function getResourceExportedFunctions(theResource?: Resource): string[] | false;
 
 /**
  * This function is used to retrieve a resource from its name.
@@ -125,16 +157,52 @@ declare function getResourceState(theResource: Resource): string | false;
  **/
 declare function getThisResource(): Resource;
 
-// TODO: Fix types
 /**
  * Gets all fetchRemote and callRemote requests currently running.
  * @param [theResource=undefined] the resource to get all requests from.
  * @returns Returns a table with all requests, false if an invalid resource was provided.
  * @see https://wiki.mtasa.com/wiki/GetRemoteRequests
  **/
-declare function getRemoteRequests(theResource?: Resource): object | false;
+declare function getRemoteRequests(theResource?: Resource): Request[] | false;
 
-// TODO: Fix types
+interface RemoteRequestInfo {
+  // A number specifying the amount of data received so far. Zero means the download is queued
+  bytesReceived: number;
+
+  // A number specifying the final download size. Will be zero if the remote HTTP server has not set the 'Content-Length' header
+  bytesTotal: number;
+
+  // A number specifying the current connection attempt
+  currentAttempt: number;
+
+  // A string specifying either "fetch" or "call"
+  type: "fetch" | "call";
+
+  // A string specifying the URL
+  url: string;
+
+  // The resource which started the request, or false if the resource has since been stopped/restarted
+  resource: Resource | false;
+
+  // A string specifying the queue name
+  queue: string;
+
+  //  A string specifying the HTTP method. e.g. "GET" or "POST"
+  method: "GET" | "POST";
+
+  // A number specifying max number connection attempts as declared in the fetchRemote call
+  connectionAttempts: number;
+
+  // A number specifying connection attempt timeout as declared in the fetchRemote call
+  connectionTimeout: number;
+
+  // A string containing the request post data as declared in the fetchRemote call
+  postData: string;
+
+  // A table containing the request HTTP headers as declared in the fetchRemote call
+  headers: { [key: string]: string };
+}
+
 /**
  * Gets informations of an fetchRemote or callRemote request info.
  * @param theRequest returned from fetchRemote, callRemote or getRemoteRequests.
@@ -143,13 +211,12 @@ declare function getRemoteRequests(theResource?: Resource): object | false;
  * @returns Returns a table when valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetRemoteRequestInfo
  **/
-declare function getRemoteRequestInfo(theRequest: object, postDataLength?: number, includeHeaders?: boolean): object | false;
+declare function getRemoteRequestInfo(theRequest: Request, postDataLength?: number, includeHeaders?: boolean): RemoteRequestInfo | false;
 
-// TODO: Fix types
 /**
  * Aborts a fetchRemote or callRemote request.
  * @param theRequest returned from fetchRemote, callRemote or getRemoteRequests.
  * @returns Returns true on success, false when invalid request was provided.
  * @see https://wiki.mtasa.com/wiki/AbortRemoteRequest
  **/
-declare function abortRemoteRequest(theRequest: object): boolean;
+declare function abortRemoteRequest(theRequest: Request): boolean;

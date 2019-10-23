@@ -38,14 +38,25 @@ declare function getSoundBPM(sound: Sound | Sound3D): number | false;
  **/
 declare function getSoundBufferLength(sound: Sound | Sound3D): number | false | undefined;
 
-// TODO: Fix types
+declare interface SoundEffectName {
+  "gargle": boolean;
+  "compressor": boolean;
+  "echo": boolean;
+  "i3dl2reverb": boolean;
+  "distortion": boolean;
+  "chorus": boolean;
+  "parameq": boolean;
+  "reverb": boolean;
+  "flanger": boolean;
+}
+
 /**
  * Returns the states of all effects of a sound.
  * @param sound a sound element.
- * @returns Returns a object with the effect names as the keys, and their states as the values if successful. Otherwise, it returns false.
+ * @returns Returns a table with the effect names as the keys, and their states as the values if successful. Otherwise, it returns false.
  * @see https://wiki.mtasa.com/wiki/GetSoundEffects
  **/
-declare function getSoundEffects(sound: Sound | Sound3D): object | false;
+declare function getSoundEffects(sound: Sound | Sound3D): SoundEffectName | false;
 
 // TODO: Fix types
 /**
@@ -87,16 +98,31 @@ declare function getSoundLevelData(sound: Sound | Sound3D): [number, number] | [
  **/
 declare function getSoundMaxDistance(sound: Sound | Sound3D): number | false;
 
-// TODO: Fix types
+interface SoundMetaTags {
+  title: string;
+  artist: string;
+  album: string;
+  genre: string;
+  year: number | string;
+  comment: string;
+  track: string;
+  composer: string;
+  copyright: string;
+  subtitle: string;
+  album_artist: string;
+  stream_name: string;
+  stream_title: string;
+}
+
 /**
  * Used to get the meta tags attached to a sound.
  * These provide information about the sound, for instance the title or the artist.
  * @param sound a sound element.
  * @param [format=""] a filter string to get a specific meta tag.
- * @returns Returns a object, but only a string if format is given, with all data available (keys are listed below) for the sound if successful, false otherwise.
+ * @returns Returns a table, but only a string if format is given, with all data available (keys are listed below) for the sound if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetSoundMetaTags
  **/
-declare function getSoundMetaTags(sound: Sound | Sound3D, format?: string): object | false;
+declare function getSoundMetaTags(sound: Sound | Sound3D, format?: string): SoundMetaTags | false;
 
 /**
  * Gets a custom sound Minimum distance at which the sound stops getting louder.

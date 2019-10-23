@@ -51,24 +51,22 @@ declare function engineRequestModel(elementType: "ped"): number | false;
  **/
 declare function engineFreeModel(modelID: number): boolean;
 
-// TODO: Fix type
 /**
  * This function returns a table of the world textures which are applied to the specified model.
  * @param modelID You can either use the model id or the model name.
- * @returns Returns an object if this function succeeds, false if it fails for some reason.
+ * @returns Returns a table if this function succeeds, false if it fails for some reason.
  * @see https://wiki.mtasa.com/wiki/EngineGetModelTextureNames
  **/
-declare function engineGetModelTextureNames(modelID: string): object | false;
+declare function engineGetModelTextureNames(modelID: string): string[] | false;
 
-// TODO: Fix type
 /**
  * This function returns a list of the world textures which are being used to draw the current scene.
  * @param [nameFilter="*"] Only include textures that match the wildcard string.
  * @param [modelId=""] Only include textures that are used by the model id (or model name).
- * @returns Returns an object of texture names.
+ * @returns Returns a table of texture names.
  * @see https://wiki.mtasa.com/wiki/EngineGetVisibleTextureNames
  **/
-declare function engineGetVisibleTextureNames(nameFilter?: string, modelId?: string): object | false;
+declare function engineGetVisibleTextureNames(nameFilter?: string, modelId?: string): string[] | false;
 
 /**
  * This function imports (adds) a loaded RenderWare Texture Dictionary into a specific model.

@@ -7,7 +7,7 @@
  **/
 declare function guiBringToFront(guiElement: GuiElement): boolean;
 
-// TODO: Fix types
+// TODO: Need test
 /**
  * Returns information about how the chatbox looks.
  * These values come from the file called: Chatboxpresets.xml but it depends on what type of preset you currently have, which is chosen from your settings in the 'Interface' tab.
@@ -104,7 +104,6 @@ declare function guiGetInputMode(): string;
  **/
 declare function guiGetPosition(guiElement: GuiElement, relative: boolean): [number, number] | [false];
 
-// TODO: Fix types
 /**
  * This function gets a list of the CEGUI property names and values of a GUI element.
  * To find out what the different properties mean, check out the CEGUI properties page.
@@ -112,7 +111,7 @@ declare function guiGetPosition(guiElement: GuiElement, relative: boolean): [num
  * @returns If the function succeeds, the return value is a table. Its keys are property names, the corresponding values are the values of the properties (both names and values are always strings). If the function fails, it returns false.
  * @see https://wiki.mtasa.com/wiki/GuiGetProperties
  **/
-declare function guiGetProperties(guiElement: GuiElement): object | false;
+declare function guiGetProperties(guiElement: GuiElement): {[key: string]: any} | false;
 
 /**
  * This function gets the value of a specific CEGUI property of a GUI element.
@@ -722,7 +721,7 @@ declare function guiGridListGetSelectedCount(gridList: GuiGridList): number | fa
  **/
 declare function guiGridListGetSelectedItem(gridList: GuiGridList): [number, number] | [false];
 
-// TODO: Fix types
+// TODO: Need test
 /**
  * This function returns the items selected in the specified grid list.
  * Note that for some reason the column ID is 1 lower than it should be, for example 0 is returned but if you try and get the text for column 0 there is nothing, but column 1 has what you clicked on.
@@ -730,7 +729,7 @@ declare function guiGridListGetSelectedItem(gridList: GuiGridList): [number, num
  * @returns Returns a table over the selected items in the grid list in this format: if everything was successful or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GuiGridListGetSelectedItems
  **/
-declare function guiGridListGetSelectedItems(gridList: GuiGridList): object | false;
+declare function guiGridListGetSelectedItems(gridList: GuiGridList): {[key: number]: {[key: string]: number}} | false;
 
 /**
  * This function retrieves the current selection mode of a gui gridlist.

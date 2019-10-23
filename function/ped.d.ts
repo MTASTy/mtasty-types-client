@@ -278,13 +278,12 @@ declare function getPedWeaponSlot(thePed: Ped): number | false;
  **/
 declare function getPedWeaponMuzzlePosition(thePed: Ped): [number, number, number] | [false];
 
-// TODO: Fix types
 /**
  * This function returns all valid ped models.
  * @returns Returns a table with all valid ped models.
  * @see https://wiki.mtasa.com/wiki/GetValidPedModels
  **/
-declare function getValidPedModels(): object[];
+declare function getValidPedModels(): number[];
 
 /**
  * This function gives the specified weapon to the specified ped.

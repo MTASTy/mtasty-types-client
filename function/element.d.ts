@@ -90,7 +90,15 @@ declare function getElementAttachedOffsets(theElement: Element): [number, number
  **/
 declare function getElementAttachedTo(theElement: Element): Element | false;
 
-// TODO: getElementBoundingBox
+/**
+ * This function returns the minimum and maximum coordinates of an element's bounding box. It should be noted that the values returned are relative to the position of the element, and as such if you wish to get world coordinates for drawing, etc., you should retrieve the position of the element and add the returned values onto that.
+ * - Note: Note: The element must be streamed in for this function to work.
+ * @param theElement: the element whose bounding box we want to get.
+ * @returns Returns min x, min y, min z, max x, max y, max z if the passed element is valid and streamed in, false otherwise.
+ * @tupleReturn
+ * @see https://wiki.mtasa.com/wiki/GetElementBoundingBox
+ **/
+declare function getElementBoundingBox(theElement: Element): [number, number, number, number, number, number] | [false];
 
 /**
  * This function returns an element from the specified ID. If more than one element with the same ID exists, only the first one in the order it appears in the XML tree will be returned by this function.
@@ -203,7 +211,6 @@ declare function getElementID(theElement: Element): string | false;
  **/
 declare function getElementInterior(theElement: Element): number | false;
 
-// TODO: Fix types
 /**
  * This function gets an element's transform matrix.
  * This contains 16 number values that multiplied to a point will give you the point transformed.
@@ -216,7 +223,7 @@ declare function getElementInterior(theElement: Element): number | false;
  * @returns Returns a multi-dimensional array (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
  * @see https://wiki.mtasa.com/wiki/GetElementMatrix
  **/
-declare function getElementMatrix(theElement: Element, legacy?: boolean): object | false;
+declare function getElementMatrix(theElement: Element, legacy?: boolean): { [key: number]: number } | false;
 
 /**
  * Returns the model ID of a given element.
@@ -264,7 +271,6 @@ declare function getElementRadius(theElement: Element): number | false;
  **/
 declare function getElementRotation(theElement: Element, rotOrder?: string): [number, number, number] | [false, undefined, undefined];
 
-// TODO: Fix types (add ElementType enum)
 /**
  * This function is used to retrieve the type of an element.
  * @param theElement The element you wish to get the type of.
@@ -639,7 +645,6 @@ declare function setElementID(theElement: Element, name: string): boolean;
  **/
 declare function setElementInterior(theElement: Element, interior: number, x: number, y: number, z: number): boolean;
 
-// TODO: Fix types
 /**
  * This function sets matrix to element.
  * @param theElement The element which you set matrix.
@@ -647,7 +652,7 @@ declare function setElementInterior(theElement: Element, interior: number, x: nu
  * @returns Returns true if the matrix was set succesfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementMatrix
  **/
-declare function setElementMatrix(theElement: Element, theMatrix: object): boolean;
+declare function setElementMatrix(theElement: Element, theMatrix: number[]): boolean;
 
 /**
  * Sets the model of a given element.

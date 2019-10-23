@@ -1,5 +1,3 @@
-// TODO: SearchLight? Or Light
-
 /**
  * This function creates a 3D light in the world.
  * - Note: The direction of the light only has any effect if the light type is spot light. One light will only apply illumination effects to peds, players, wheels and number plates (like a emergency vehicle siren light does). Two or more lights will apply illumination effects to everything (excluding objects) that is in range of, at least, two of them.
@@ -18,7 +16,7 @@
  * @returns Returns the light element if creation was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CreateLight
  **/
-declare function createLight(lightType: number, posX: number, posY: number, posZ: number, radius?: number, r?: number, g?: number, b?: number, dirX?: number, dirY?: number, dirZ?: number, createsShadow?: boolean): SearchLight | false;
+declare function createLight(lightType: number, posX: number, posY: number, posZ: number, radius?: number, r?: number, g?: number, b?: number, dirX?: number, dirY?: number, dirZ?: number, createsShadow?: boolean): Light | false;
 
 /**
  * This function returns the color for a light element.
@@ -27,7 +25,7 @@ declare function createLight(lightType: number, posX: number, posY: number, posZ
  * @see https://wiki.mtasa.com/wiki/GetLightColor
  * @tupleReturn
  **/
-declare function getLightColor(theLight: SearchLight): [number, number, number] | [false];
+declare function getLightColor(theLight: Light): [number, number, number] | [false];
 
 /**
  * This function returns the direction for a light element.
@@ -36,7 +34,7 @@ declare function getLightColor(theLight: SearchLight): [number, number, number] 
  * @see https://wiki.mtasa.com/wiki/GetLightDirection
  * @tupleReturn
  **/
-declare function getLightDirection(theLight: SearchLight): [number, number, number] | [false];
+declare function getLightDirection(theLight: Light): [number, number, number] | [false];
 
 /**
  * This function returns the radius for a light element.
@@ -44,7 +42,7 @@ declare function getLightDirection(theLight: SearchLight): [number, number, numb
  * @returns Returns a number containing the radius of the specified light, false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetLightRadius
  **/
-declare function getLightRadius(theLight: SearchLight): number | false;
+declare function getLightRadius(theLight: Light): number | false;
 
 /**
  * This function returns the type for a light element.
@@ -52,7 +50,7 @@ declare function getLightRadius(theLight: SearchLight): number | false;
  * @returns Returns an int containing the type of the specified light, false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetLightType
  **/
-declare function getLightType(theLight: SearchLight): number | false;
+declare function getLightType(theLight: Light): number | false;
 
 /**
  * This function sets the color for a light element.
@@ -63,7 +61,7 @@ declare function getLightType(theLight: SearchLight): number | false;
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetLightColor
  **/
-declare function setLightColor(theLight: SearchLight, r: number, g: number, b: number): boolean;
+declare function setLightColor(theLight: Light, r: number, g: number, b: number): boolean;
 
 /**
  * This function sets the direction for a light element.
@@ -74,7 +72,7 @@ declare function setLightColor(theLight: SearchLight, r: number, g: number, b: n
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetLightDirection
  **/
-declare function setLightDirection(theLight: SearchLight, x: number, y: number, z: number): boolean;
+declare function setLightDirection(theLight: Light, x: number, y: number, z: number): boolean;
 
 /**
  * This function sets the radius for a light element.
@@ -83,4 +81,4 @@ declare function setLightDirection(theLight: SearchLight, x: number, y: number, 
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetLightRadius
  **/
-declare function setLightRadius(theLight: SearchLight, radius: number): boolean;
+declare function setLightRadius(theLight: Light, radius: number): boolean;

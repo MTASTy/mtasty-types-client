@@ -122,7 +122,17 @@ declare function stopObject(theObject: MapObject): boolean;
  **/
 declare function toggleObjectRespawn(theObject: MapObject, respawn: boolean): boolean;
 
-// TODO: Fix types
+// TODO: center_of_mass Vector3D - (x, y, z)
+interface ObjectPropertyFormat {
+  mass: number;
+  turn_mass: number;
+  accuracy: number;
+  air_resistance: number;
+  elasticity: number;
+  center_of_mass: any;
+  buoyancy: number;
+}
+
 /**
  * This function gets a property of the specified object.
  * @param theObject the object you wish to get a property of.
@@ -131,7 +141,7 @@ declare function toggleObjectRespawn(theObject: MapObject, respawn: boolean): bo
  * @see https://wiki.mtasa.com/wiki/GetObjectProperty
  * @tupleReturn
  **/
-declare function getObjectProperty(theObject: MapObject, property: string): [object] | [number, number, number] | [number] | [false];
+declare function getObjectProperty(theObject: MapObject, property: string): [ObjectPropertyFormat] | [number, number, number] | [number] | [false];
 
 /**
  * This function sets a property of the specified object.

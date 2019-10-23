@@ -231,7 +231,23 @@ declare function dxDrawLine3D(startX: number, startY: number, startZ: number, en
  **/
 declare function dxDrawMaterialLine3D(startX: number, startY: number, startZ: number, endX: number, endY: number, endZ: number, material: DxMaterial, width: number, color?: number, postGUI?: boolean, faceTowardX?: number, faceTowardY?: number, faceTowardZ?: number): boolean;
 
-// TODO: Fix types
+interface VerticesFormat {
+  // An float representing the absolute X position of the vertice, represented by pixels on the screen
+  posX: number;
+
+  // An float representing the absolute Y position of the vertice, represented by pixels on the screen
+  posY: number;
+
+  // An integer of the hex color, produced using tocolor or 0xAARRGGBB (AA = alpha, RR = red, GG = green, BB = blue). If it's not specified, white color is used
+  color?: number;
+
+  // An float representing the relative X coordinate of the top left corner of the material which should be drawn from image
+  u?: number;
+
+  // An float representing the relative Y coordinate of the top left corner of the material which should be drawn from image
+  v?: number;
+}
+
 /**
  * This function draws a 2D primitive shape with material applied to it across the screen - rendered for one frame.
  * This should be used in conjunction with onClientRender in order to display continuously.
@@ -245,9 +261,8 @@ declare function dxDrawMaterialLine3D(startX: number, startY: number, startZ: nu
  * @returns Returns a true if the operation was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DxDrawMaterialPrimitive
  **/
-declare function dxDrawMaterialPrimitive(pType: string, material: DxMaterial | string, postGUI: boolean, vertice: object, ...vertices: object[]): boolean;
+declare function dxDrawMaterialPrimitive(pType: string, material: DxMaterial | string, postGUI: boolean, vertice: VerticesFormat, ...vertices: VerticesFormat[]): boolean;
 
-// TODO: Fix types
 /**
  * This function draws a 2D primitive shape across the screen - rendered for one frame.
  * This should be used in conjunction with onClientRender in order to display continuously.
@@ -258,9 +273,8 @@ declare function dxDrawMaterialPrimitive(pType: string, material: DxMaterial | s
  * @returns Returns a true if the operation was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DxDrawPrimitive
  **/
-declare function dxDrawPrimitive(pType: string, postGUI: boolean, vertice: object, ...vertices: object[]): boolean;
+declare function dxDrawPrimitive(pType: string, postGUI: boolean, vertice: VerticesFormat, ...vertices: VerticesFormat[]): boolean;
 
-// TODO: Fix types
 /**
  * This function draws a 3D primitive in the 3D world - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.
  * @param pType Type of primitive to be drawn.
@@ -272,7 +286,7 @@ declare function dxDrawPrimitive(pType: string, postGUI: boolean, vertice: objec
  * @returns Returns a true if the operation was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DxDrawPrimitive
  **/
-declare function dxDrawPrimitive3D(pType: string, postGUI: boolean, vertex1: object,  vertex2: object,  vertex3: object, ...vertexN: object[]): boolean;
+declare function dxDrawPrimitive3D(pType: string, postGUI: boolean, vertex1: VerticesFormat,  vertex2: VerticesFormat,  vertex3: VerticesFormat, ...vertexN: VerticesFormat[]): boolean;
 
 /**
  * This function draws a textured 3D line between two points in the 3D world - rendered for one frame.
@@ -399,13 +413,98 @@ declare function dxGetPixelsSize(pixels: string): [number, number] | [false];
  **/
 declare function dxGetPixelsFormat(pixels: string): string | false;
 
-// TODO: Fix types
+interface DxStatusFormat {
+  // The current dx test mode. See dxSetTestMode
+  TestMode: string;
+
+  // The name of the graphics card
+  VideoCardName: string;
+
+  // The installed memory in MB of the graphics card
+  VideoCardRAM: number;
+
+  // The maximum pixel shader version of the graphics card
+  VideoCardPSVersion: number;
+
+  // The maximum number of simultaneous render targets a shader can use
+  VideoCardNumRenderTargets: number;
+
+  // The maximum anisotropic filtering available (0-4 which respectively mean: off,2x,4x,8x,16x)
+  VideoCardMaxAnisotropy: number;
+
+  // The amount of memory in MB available for MTA to use. When this gets to zero, guiCreateFont, dxCreateFont and dxCreateRenderTarget will fail
+  VideoMemoryFreeForMTA: number;
+
+  // The amount of graphic memory in MB used by custom fonts
+  VideoMemoryUsedByFonts: number;
+
+  // The amount of graphic memory in MB used by textures
+  VideoMemoryUsedByTextures: number;
+
+  // The amount of graphic memory in MB used by render targets
+  VideoMemoryUsedByRenderTargets: number;
+
+  // The windowed setting (true/false)
+  SettingWindowed: boolean;
+
+  // Display style when in full screen mode (0-2 which respectively mean: Standard, Borderless window, Borderless keep res)
+  SettingFullScreenStyle: number;
+
+  // The FX Quality (0-3)
+  SettingFXQuality: number;
+
+  // The draw distance setting (0-100)
+  SettingDrawDistance: number;
+
+  // The volumetric shadows setting (true/false)
+  SettingVolumetricShadows: boolean;
+
+  // The usable graphics memory setting (64-256)
+  SettingStreamingVideoMemoryForGTA: number;
+
+  // The anisotropic filtering setting (0-4 which respectively mean: off,2x,4x,8x,16x)
+  SettingAnisotropicFiltering: number;
+
+  // The anti-aliasing setting (0-3 which respectively mean: off,1x,2x,3x)
+  SettingAntiAliasing: number;
+
+  // The heat haze setting (true/false)
+  SettingHeatHaze: boolean;
+
+  // The grass effect setting (true/false)
+  SettingGrassEffect: boolean;
+
+  // The color depth of the screen (false is 16bit, true is 32bit)
+  Setting32BitColor: boolean;
+
+  // The hud match aspect ratio setting (true/false)
+  SettingHUDMatchAspectRatio: boolean;
+
+  // The aspect ratio setting ("auto", "4:3", "16:10", "16:9")
+  SettingAspectRatio: string;
+
+  // The FOV setting
+  SettingFOV: number;
+
+  // High detail vehicles setting (true/false)
+  SettingHighDetailVehicles: boolean;
+
+  // The allows screen uploads setting (true/false)
+  AllowScreenUpload: boolean;
+
+  // The format of the shader readable depth buffer, or 'unknown' if not available
+  DepthBufferFormat: string | number;
+
+  // true if the depth buffer is used, false otherwise
+  UsingDepthBuffer: boolean;
+}
+
 /**
  * This function gets information about various internal datum.
  * @returns Returns a object.
  * @see https://wiki.mtasa.com/wiki/DxGetStatus
  **/
-declare function dxGetStatus(): object;
+declare function dxGetStatus(): DxStatusFormat;
 
 /**
  * This function retrieves the theoretical width of a certain piece of text, if it were to be drawn using dxDrawText.

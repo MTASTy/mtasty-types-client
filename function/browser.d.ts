@@ -54,13 +54,23 @@ declare function focusBrowser(webBrowser: Browser): boolean | undefined;
  **/
 declare function getBrowserProperty(theBrowser: Browser, key: string): any;
 
-// TODO: Fix types
+interface BrowserSettings {
+  // true if remote websites are enabled, false otherwise
+  RemoteEnabled: boolean;
+
+  // true if Javascript is enabled on remote websites, false otherwise
+  RemoteJavascript: boolean;
+
+  // true if plugins such as Flash, Silverlight (but not Java) are enabled, false otherwise. This setting is false by default
+  PluginsEnabled: boolean;
+}
+
 /**
  * This function returns a table containing the browser settings.
- * @returns A object.
+ * @returns A table.
  * @see https://wiki.mtasa.com/wiki/GetBrowserSettings
  **/
-declare function getBrowserSettings(): object;
+declare function getBrowserSettings(): BrowserSettings;
 
 /**
  * This function can be used to retrieve the source code of a website (asynchronously).
@@ -187,17 +197,16 @@ declare function navigateBrowserForward(webBrowser: Browser): boolean;
  **/
 declare function reloadBrowserPage(webBrowser: Browser): boolean;
 
-// TODO: Fix types
 /**
  * This function opens a request window in order to accept the requested remote URLs.
  * - Note: You must use this function prior to calling loadBrowserURL because every domain is blocked by default.
- * @param pages A object containing all domains.
+ * @param pages A table containing all domains.
  * @param [parseAsURL=false] true if the passed addresses should be converted from URLs, false otherwise.
  * @param callback A callback function that is called as soon as the result is available.
  * @returns Returns true, if the string was successfully read, false otherwise.
  * @see https://wiki.mtasa.com/wiki/RequestBrowserDomains
  **/
-declare function requestBrowserDomains(pages: object, parseAsURL?: boolean, callback?: SimpleHandler): boolean;
+declare function requestBrowserDomains(pages: string[], parseAsURL?: boolean, callback?: SimpleHandler): boolean;
 
 /**
  * Allows resizing of CEF browsers at runtime.
