@@ -282,7 +282,7 @@ declare function dxDrawPrimitive(pType: string, postGUI: boolean, vertice: Verti
  * @param vertex1: An object with the coordinates of the vertex plus its color.
  * @param vertex2: An object with the coordinates of the vertex plus its color.
  * @param vertex3: An object with the coordinates of the vertex plus its color.
- * @param vertexN: A table with the coordinates of the vertex plus its color. You can add as much as you want.
+ * @param vertexN: An object with the coordinates of the vertex plus its color. You can add as much as you want.
  * @returns Returns a true if the operation was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DxDrawPrimitive
  **/
@@ -501,7 +501,7 @@ interface DxStatusFormat {
 
 /**
  * This function gets information about various internal datum.
- * @returns Returns a object.
+ * @returns Returns an object.
  * @see https://wiki.mtasa.com/wiki/DxGetStatus
  **/
 declare function dxGetStatus(): DxStatusFormat;

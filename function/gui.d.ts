@@ -12,7 +12,7 @@ declare function guiBringToFront(guiElement: GuiElement): boolean;
  * Returns information about how the chatbox looks.
  * These values come from the file called: Chatboxpresets.xml but it depends on what type of preset you currently have, which is chosen from your settings in the 'Interface' tab.
  * @param CVar the name of the property you want returned.
- * @returns Returns 4 numbers if the CVar contains "color" or 2 numbers if chat_scale was entered or 1 number if any other CVar was specified or a table of all CVar values, if CVar was not specified or false if an invalid CVar was specified.
+ * @returns Returns 4 numbers if the CVar contains "color" or 2 numbers if chat_scale was entered or 1 number if any other CVar was specified or an array of all CVar values, if CVar was not specified or false if an invalid CVar was specified.
  * @see https://wiki.mtasa.com/wiki/GetChatboxLayout
  * @tupleReturn
  **/
@@ -108,7 +108,7 @@ declare function guiGetPosition(guiElement: GuiElement, relative: boolean): [num
  * This function gets a list of the CEGUI property names and values of a GUI element.
  * To find out what the different properties mean, check out the CEGUI properties page.
  * @param guiElement the GUI element you wish to get the properties of.
- * @returns If the function succeeds, the return value is a table. Its keys are property names, the corresponding values are the values of the properties (both names and values are always strings). If the function fails, it returns false.
+ * @returns If the function succeeds, the return value is an object. Its keys are property names, the corresponding values are the values of the properties (both names and values are always strings). If the function fails, it returns false.
  * @see https://wiki.mtasa.com/wiki/GuiGetProperties
  **/
 declare function guiGetProperties(guiElement: GuiElement): {[key: string]: any} | false;
@@ -726,7 +726,7 @@ declare function guiGridListGetSelectedItem(gridList: GuiGridList): [number, num
  * This function returns the items selected in the specified grid list.
  * Note that for some reason the column ID is 1 lower than it should be, for example 0 is returned but if you try and get the text for column 0 there is nothing, but column 1 has what you clicked on.
  * @param gridList The grid list which selected items you want to retrieve.
- * @returns Returns a table over the selected items in the grid list in this format: if everything was successful or false if invalid arguments were passed.
+ * @returns Returns an object over the selected items in the grid list in this format: if everything was successful or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GuiGridListGetSelectedItems
  **/
 declare function guiGridListGetSelectedItems(gridList: GuiGridList): {[key: number]: {[key: string]: number}} | false;

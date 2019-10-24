@@ -57,9 +57,9 @@ declare function destroyElement(elementToDestroy: Element): boolean;
 declare function detachElements(theElement: Element, theAttachToElement: Element): boolean;
 
 /**
- * This function returns a table of all the elements attached to the specified element
+ * This function returns an array of all the elements attached to the specified element
  * @param theElement The element which you require the information from.
- * @returns Returns a table of all the elements attached to the specified element.
+ * @returns Returns an array of all the elements attached to the specified element.
  * @see https://wiki.mtasa.com/wiki/GetAttachedElements
  **/
 declare function getAttachedElements(theElement: Element): Element[] | false;
@@ -125,7 +125,7 @@ declare function getElementChild(parent: Element, index: number): Element | fals
  * - Note that it will only return direct children and not elements that are further down the element tree.
  * @param parent Supply this argument with the parent of the children you want returned.
  * @param [theType=undefined] The type of element you want a list of. This is the same as the tag name in the .map file, so this can be used with a custom element type if desired. Built in types are
- * @returns This function returns a table that contains a list of elements that the parent has. If the element has no children, it will return an empty table. It will return false if the parent element does not exist.
+ * @returns This function returns an array that contains a list of elements that the parent has. If the element has no children, it will return an empty araay. It will return false if the parent element does not exist.
  * @see https://wiki.mtasa.com/wiki/GetElementChildren
  **/
 declare function getElementChildren(parent: Element, theType?: string): Element[] | false;
@@ -220,10 +220,10 @@ declare function getElementInterior(theElement: Element): number | false;
  * - Tip: For matrix manipulation which goes beyond the basic examples given on this page, see the Lua matrix library. If you are using MTA: SA 1.4 or higher, using the built-in matrix class is also recommended.
  * @param theElement The element which you wish to retrieve the matrix for.
  * @param [legacy=true] Set to false to return correctly setup matrix (i.e. Last column in the first 3 rows set to zero).
- * @returns Returns a multi-dimensional array (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
+ * @returns Returns a multi-dimensional object (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
  * @see https://wiki.mtasa.com/wiki/GetElementMatrix
  **/
-declare function getElementMatrix(theElement: Element, legacy?: boolean): { [key: number]: number } | false;
+declare function getElementMatrix(theElement: Element, legacy?: boolean): {[key: number]: number} | false;
 
 /**
  * Returns the model ID of a given element.
@@ -294,7 +294,7 @@ declare function getElementVelocity(theElement: Element): [number, number, numbe
  * @param theType The type of element you want a list of. This is the same as the tag name in the .map file, so this can be used with a custom element type if desired.
  * @param [startat=getRootElement()] The element the search should start at. Children of this element are searched, siblings or parents will not be found. By default, this is the root element which should suit most uses.
  * @param [streamedIn=false] If true, function will only return elements that are streamed in.
- * @returns Returns a table containing all the elements of the specified type. Returns an empty table if there are no elements of the specified type. Returns false if the string specified is invalid (or not a string).
+ * @returns Returns an array containing all the elements of the specified type. Returns an empty an array if there are no elements of the specified type. Returns false if the string specified is invalid (or not a string).
  * @see https://wiki.multitheftauto.com/wiki/GetElementsByType
  **/
 declare function getElementsByType(theType: string, startat?: Element, streamedIn?: boolean): Element[] | false;
@@ -305,7 +305,7 @@ declare function getElementsByType(theType: string, startat?: Element, streamedI
  * This function doesn't verify whether elements are in the same dimension and interior, additional checks could be implemented manually if they are needed.
  * @param theShape The colshape you want to get the elements from.
  * @param [elemType=undefined] The type of element you want a list of. This can be any element type, the common ones being.
- * @returns Returns a table containing all the elements inside the colshape, of the specified type. Returns an empty table if there are no elements inside. Returns false if the colshape is invalid.
+ * @returns Returns an array containing all the elements inside the colshape, of the specified type. Returns an empty array if there are no elements inside. Returns false if the colshape is invalid.
  * @see https://wiki.mtasa.com/wiki/GetElementsWithinColShape
  **/
 declare function getElementsWithinColShape(theShape: ColShape, elemType?: string): Element[] | false;
@@ -318,7 +318,7 @@ declare function getElementsWithinColShape(theShape: ColShape, elemType?: string
  * @param z the z coordinate at which to retrieve elements.
  * @param range the range at the coordinates in which to retrieve elements.
  * @param [elemType=""] The type of element you want a list of.
- * @returns Returns a object containing all the elements of the specified type within range. Returns an empty object if there are no elements within range. Returns false if the arguments are invalid.
+ * @returns Returns an array containing all the elements of the specified type within range. Returns an empty array if there are no elements within range. Returns false if the arguments are invalid.
  * @see https://wiki.mtasa.com/wiki/GetElementsWithinRange
  **/
 declare function getElementsWithinRange(x: number, y: number, z: number, range: number, elemType?: string): Element[] | false;

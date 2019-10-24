@@ -53,23 +53,23 @@ declare interface SoundEffectName {
 /**
  * Returns the states of all effects of a sound.
  * @param sound a sound element.
- * @returns Returns a table with the effect names as the keys, and their states as the values if successful. Otherwise, it returns false.
+ * @returns Returns an object with the effect names as the keys, and their states as the values if successful. Otherwise, it returns false.
  * @see https://wiki.mtasa.com/wiki/GetSoundEffects
  **/
 declare function getSoundEffects(sound: Sound | Sound3D): SoundEffectName | false;
 
 // TODO: Fix types
 /**
- * This function gets the fast fourier transform data for an audio stream which is a table of numbers representing the current audio frame. This allows things like visualisations.
- * A fast fourier transform generates a table of all the frequencies of the current audio frame which starts at the bass end of the spectrum to mids to highs in that order.
+ * This function gets the fast fourier transform data for an audio stream which is an array of numbers representing the current audio frame. This allows things like visualisations.
+ * A fast fourier transform generates an array of all the frequencies of the current audio frame which starts at the bass end of the spectrum to mids to highs in that order.
  * Just type "startmusic mystreamurl" in your console and it will play on the cinema billboard near A51 If the element is a player, this function will use the players voice.
  * @param sound a sound element that is created using playSound or playSound3D. Streams are also supported.
  * @param iSamples allowed samples are 256, 512, 1024, 2048, 4096, 8192 and 16384.
  * @param [iBands=0] post processing option allows you to split the samples into the desired amount of bands or bars so if you only need 5 bars this saves a lot of cpu power.
- * @returns Returns a object of iSamples/2 (or iBands if iBands is used) numbers representing the current audio frame. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
+ * @returns Returns an array of iSamples/2 (or iBands if iBands is used) numbers representing the current audio frame. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
  * @see https://wiki.mtasa.com/wiki/GetSoundFFTData
  **/
-declare function getSoundFFTData(sound: Sound | Sound3D, iSamples: number, iBands?: number): object | false;
+declare function getSoundFFTData(sound: Sound | Sound3D, iSamples: number, iBands?: number): number[] | false;
 
 /**
  * This function is used to return the playback length of the specified sound element.
@@ -119,7 +119,7 @@ interface SoundMetaTags {
  * These provide information about the sound, for instance the title or the artist.
  * @param sound a sound element.
  * @param [format=""] a filter string to get a specific meta tag.
- * @returns Returns a table, but only a string if format is given, with all data available (keys are listed below) for the sound if successful, false otherwise.
+ * @returns Returns an object, but only a string if format is given, with all data available (keys are listed below) for the sound if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetSoundMetaTags
  **/
 declare function getSoundMetaTags(sound: Sound | Sound3D, format?: string): SoundMetaTags | false;
@@ -176,15 +176,15 @@ declare function getSoundSpeed(sound: Sound | Sound3D): number | false;
 declare function getSoundVolume(sound: Sound | Sound3D): number | false;
 
 /**
- * This function gets the wave form data for an audio stream which is a table of numbers representing the current audio frame as a wave.
+ * This function gets the wave form data for an audio stream which is an array of numbers representing the current audio frame as a wave.
  * This allows things like visualisations.
  * If the element is a player, this function will use the players voice.
  * @param sound a sound element that is created using playSound or playSound3D. Streams are also supported.
  * @param iSamples allowed samples are 256, 512, 1024, 2048, 4096, 8192 and 16384.
- * @returns Returns a object of iSamples numbers representing the current audio frame waveform. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
+ * @returns Returns an array of iSamples numbers representing the current audio frame waveform. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
  * @see https://wiki.mtasa.com/wiki/GetSoundWaveData
  **/
-declare function getSoundWaveData(sound: Sound | Sound3D, iSamples: number): object | false;
+declare function getSoundWaveData(sound: Sound | Sound3D, iSamples: number): number[] | false;
 
 /**
  * This function checks whether panning is enabled in a sound element or not.

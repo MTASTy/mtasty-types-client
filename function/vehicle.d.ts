@@ -1,36 +1,69 @@
-interface VehicleHandling {
+declare interface VehicleHandling {
+  // Value: from 1 to 100000
   mass: number;
+  // Value: from 0 to 1000000
   turnMass: number;
+  // Value: from -200 to 200
   dragCoeff: number;
+  // Value: from -10 to 10
   centerOfMass: {1: number, 2: number, 3: number};
+  // Value: from 1 to 99999
   percentSubmerged: number;
+  // Value: from -100000 to 100000
   tractionMultiplier: number;
+  // Value: from 0 to 100
   tractionLoss: number;
+  // Value: from 0 to 1
   tractionBias: number;
+  // Value: from 1 to 5
   numberOfGears: number;
+  // Value: from 0.1 to 200000
   maxVelocity: number;
+  // Value: from 0 to 100000
   engineAcceleration: number;
+  // Value: from -1000 to 1000
   engineInertia: number;
+  // Value: see below
   driveType: "rwd" | "fwd" | "awd";
+  // Value: see below
   engineType: "petrol" | "diesel" | "electric";
+  // Value: from 0.1 to 100000
   brakeDeceleration: number;
+  // Value: from 0 to 1
   brakeBias: number;
+  // Value: true or false
   ABS: boolean;
+  // Value: from 0 to 360
   steeringLock: number;
+  // Value: from 0 to 100
   suspensionForceLevel: number;
+  // Value: from 0 to 100
   suspensionDamping: number;
+  // Value: from 0 to 600
   suspensionHighSpeedDamping: number;
+  // Value: from -50 to 50
   suspensionUpperLimit: number;
+  // Value: from -50 to 50
   suspensionLowerLimit: number;
+  // Value: from 0 to 1
   suspensionFrontRearBias: number;
+  // Value: from 0 to 30
   suspensionAntiDiveMultiplier: number;
+  // Value: from -20 to 20
   seatOffsetDistance: number;
+  // Value: from 0 to 10
   collisionDamageMultiplier: number;
+  // Value: from 0 to 230195200
   monetary: number;
+  // Values see: http://projectcerbera.com/gta/sa/tutorials/handling
   modelFlags: number;
+  // Values see: http://projectcerbera.com/gta/sa/tutorials/handling
   handlingFlags: number;
+  // Value: see below
   headLight: "long" | "small" | "big" | "tall";
+  // Value: see below
   tailLight: "long" | "small" | "big" | "tall";
+  // Value: unknown. Get works, set is disabled due to people not knowing this property was vehicle-based and caused crashes.
   animGroup: number;
 }
 
@@ -126,10 +159,10 @@ declare function getHeliBladeCollisionsEnabled(theVehicle: Vehicle): boolean;
 declare function getHelicopterRotorSpeed(theVehicle: Vehicle): number | false;
 
 /**
- * This function returns a table of the original vehicle handling.
+ * This function returns an object of the original vehicle handling.
  * Use getVehicleHandling if you wish to get the current handling of a vehicle, or getModelHandling for a specific vehicle model.
  * @param modelID The vehicle ID you wish to get the original handling from.
- * @returns Returns a table containing all the handling data, false otherwise.
+ * @returns Returns an object containing all the handling data, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetOriginalHandling
  **/
 declare function getOriginalHandling(modelID: number): VehicleHandling;
@@ -188,10 +221,10 @@ declare function getVehicleAdjustableProperty(theVehicle: Vehicle): number | fal
 declare function getVehicleColor(theVehicle: Vehicle, bRGB: boolean): [number, number, number, number, number, number, number, number, number, number, number, number] | [false];
 
 /**
- * This function returns a table of all the compatible upgrades (or all for a specified slot, optionally) for a specified vehicle.
+ * This function returns an object of all the compatible upgrades (or all for a specified slot, optionally) for a specified vehicle.
  * @param theVehicle the vehicle you wish to retrieve the list of compatible upgrades of.
  * @param slot the upgrade slot number for which you're getting the list (from 0 to 16). Compatible upgrades for all slots are listed if this is not specified.
- * @returns Returns a object with all the compatible upgrades, or false if invalid arguments are passed.
+ * @returns Returns an object with all the compatible upgrades, or false if invalid arguments are passed.
  * @see https://wiki.mtasa.com/wiki/GetVehicleCompatibleUpgrades
  **/
 declare function getVehicleCompatibleUpgrades(theVehicle: Vehicle, slot?: number): {[key: number]: number | string} | false;
@@ -240,9 +273,9 @@ declare function getVehicleComponentScale(theVehicle: Vehicle, theComponent: str
 declare function getVehicleComponentVisible(theVehicle: Vehicle, theComponent: string): boolean;
 
 /**
- * This function gets a table of the components currently on a vehicle.
+ * This function gets an object of the components currently on a vehicle.
  * @param theVehicle The vehicle you wish to get the components of.
- * @returns Returns a table containing the name of the component as the key and visibility flag of that component as the value.
+ * @returns Returns an object containing the name of the component as the key and visibility flag of that component as the value.
  * @see https://wiki.mtasa.com/wiki/GetVehicleComponents
  **/
 declare function getVehicleComponents(theVehicle: Vehicle): {[key: number]: string} | false;
@@ -301,9 +334,9 @@ declare function getVehicleEngineState(theVehicle: Vehicle): boolean;
 declare function getVehicleGravity(theVehicle: Vehicle): [number, number, number] | [false];
 
 /**
- * This function returns a table of the current vehicle handling data.
+ * This function returns an object of the current vehicle handling data.
  * @param theVehicle the vehicle you wish to get the handling data of.
- * @returns Returns a object containing all the handling data, false otherwise.
+ * @returns Returns an object containing all the handling data, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetVehicleHandling
  **/
 declare function getVehicleHandling(theVehicle: Vehicle): VehicleHandling | false;
@@ -417,7 +450,7 @@ declare function getVehicleOccupant(theVehicle: Vehicle, seat?: number): Player 
 /**
  * This function gets all players sitting in the specified vehicle.
  * @param theVehicle the vehicle of which you wish to retrieve the occupants.
- * @returns Returns a object with seat ID as an index and the occupant as an element. Returns false if an invalid vehicle was passed or if the vehicle has no seats (like a trailer).
+ * @returns Returns an object with seat ID as an index and the occupant as an element. Returns false if an invalid vehicle was passed or if the vehicle has no seats (like a trailer).
  * @see https://wiki.mtasa.com/wiki/GetVehicleOccupants
  **/
 declare function getVehicleOccupants(theVehicle: Vehicle): {[seat: number]: Ped} | false;
@@ -473,7 +506,7 @@ declare interface SirenData {
 /**
  * This function gets the properties of a vehicle's sirens.
  * @param theVehicle The vehicle to get siren information of.
- * @returns If the vehicle is invalid, it returns false. Otherwise, returns a object with sub tables.
+ * @returns If the vehicle is invalid, it returns false. Otherwise, returns an object.
  * @see https://wiki.mtasa.com/wiki/GetVehicleSirens
  **/
 declare function getVehicleSirens(theVehicle: Vehicle): SirenData | false;
@@ -500,7 +533,7 @@ declare interface SirenParams {
 /**
  * This function get the parameters of a vehicles siren.
  * @param theVehicle The vehicle to get the siren parameters of.
- * @returns Returns a table with the siren count, siren type and a sub table for the four flags. False otherwise.
+ * @returns Returns an object. False otherwise.
  * @see https://wiki.mtasa.com/wiki/GetVehicleSirenParams
  **/
 declare function getVehicleSirenParams(theVehicle: Vehicle): SirenParams | false;
@@ -558,9 +591,9 @@ declare function getVehicleUpgradeOnSlot(theVehicle: Vehicle, slot: number): num
 declare function getVehicleUpgradeSlotName(slotOrUpgrade: number): string | false;
 
 /**
- * This function returns a table of all the upgrades on a specifed vehicle.
+ * This function returns an array of all the upgrades on a specifed vehicle.
  * @param theVehicle The vehicle you wish to retrieve the upgrades of.
- * @returns Returns a object of all the upgrades on each slot of a vehicle, which may be empty, or false if a valid vehicle is not passed.
+ * @returns Returns an array of all the upgrades on each slot of a vehicle, which may be empty, or false if a valid vehicle is not passed.
  * @see https://wiki.mtasa.com/wiki/GetVehicleUpgrades
  **/
 declare function getVehicleUpgrades(theVehicle: Vehicle): number[] | false;

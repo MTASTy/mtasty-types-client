@@ -52,9 +52,9 @@ declare function engineRequestModel(elementType: "ped"): number | false;
 declare function engineFreeModel(modelID: number): boolean;
 
 /**
- * This function returns a table of the world textures which are applied to the specified model.
+ * This function returns an array of the world textures which are applied to the specified model.
  * @param modelID You can either use the model id or the model name.
- * @returns Returns a table if this function succeeds, false if it fails for some reason.
+ * @returns Returns an array if this function succeeds, false if it fails for some reason.
  * @see https://wiki.mtasa.com/wiki/EngineGetModelTextureNames
  **/
 declare function engineGetModelTextureNames(modelID: string): string[] | false;
@@ -63,7 +63,7 @@ declare function engineGetModelTextureNames(modelID: string): string[] | false;
  * This function returns a list of the world textures which are being used to draw the current scene.
  * @param [nameFilter="*"] Only include textures that match the wildcard string.
  * @param [modelId=""] Only include textures that are used by the model id (or model name).
- * @returns Returns a table of texture names.
+ * @returns Returns an array of texture names.
  * @see https://wiki.mtasa.com/wiki/EngineGetVisibleTextureNames
  **/
 declare function engineGetVisibleTextureNames(nameFilter?: string, modelId?: string): string[] | false;
@@ -239,7 +239,7 @@ declare function engineSetModelLODDistance(model: number, distance: number): boo
  * This function changes a property of a surface.
  * @param surfaceID Material ID from 0 to 178.
  * @param property Property name.
- * @param value New value from table below.
+ * @param value New value.
  * @returns Returns true if the function executed succesfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/EngineSetSurfaceProperties
  **/

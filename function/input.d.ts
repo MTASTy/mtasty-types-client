@@ -58,7 +58,7 @@ declare function getAnalogControlState(control: string): number | false;
 /**
  * Returns a list of key names that are bound to the specified game control or console command.
  * @param commandOrControl the name of a game control or a console command.
- * @returns If one or more keys are bound to the specified control or console command, a table is returned indexed by the names of the keys and containing key states as values. If no keys are bound or an invalid name was passed, returns false.
+ * @returns If one or more keys are bound to the specified control or console command, an object is returned indexed by the names of the keys and containing key states as values. If no keys are bound or an invalid name was passed, returns false.
  * @see https://wiki.mtasa.com/wiki/GetBoundKeys
  **/
 declare function getBoundKeys(commandOrControl: string): {[key: string]: "up" | "down" | "both"} | false;
@@ -66,7 +66,7 @@ declare function getBoundKeys(commandOrControl: string): {[key: string]: "up" | 
 /**
  * This function is used to retrieve a list of all the registered command handlers of a given resource (or of all resources).
  * @param theResource The resource from which you wish to retrieve all command handlers.Or leave it empty to retrieve command handlers of all resources.
- * @returns Returns a table containing all the commands of the given resource or a table with subtables containing the command and theResource pointer ( { "command", theResource } ).
+ * @returns Returns an object containing all the commands of the given resource or an object with subobjects containing the command and theResource pointer ( { "command", theResource } ).
  * @see https://wiki.mtasa.com/wiki/GetCommandHandlers
  **/
 declare function getCommandHandlers(theResource: Resource): {[key: number]: {[key: number]: {command: string, theResource: Resource}}};
@@ -75,7 +75,7 @@ declare function getCommandHandlers(theResource: Resource): {[key: number]: {[ke
  * Gets the commands bound to a key.
  * @param theKey See key names for a list of possible keys.
  * @param keyState A string that has one of the following values: "up", "down" or "both".
- * @returns Returns a table of the commands bound on that key.
+ * @returns Returns an object of the commands bound on that key.
  * @see https://wiki.mtasa.com/wiki/GetCommandsBoundToKey
  **/
 declare function getCommandsBoundToKey(theKey: string, keyState: "up" | "down" | "both"): {[key: string]: "up" | "down" | "both"} | false;
@@ -85,10 +85,10 @@ declare function getCommandsBoundToKey(theKey: string, keyState: "up" | "down" |
  * To bind a function to a key use the bindKey function
  * @param theKey The key you wish to check the functions from.
  * @param keyState A string that has one of the following values: "up", "down" or "both".
- * @returns Returns a table of the key function(s).
+ * @returns Returns an object of the key function(s).
  * @see https://wiki.mtasa.com/wiki/GetFunctionsBoundToKey
  **/
-declare function getFunctionsBoundToKey(theKey: string, keyState: "up" | "down" | "both"): object | false;
+declare function getFunctionsBoundToKey(theKey: string, keyState: "up" | "down" | "both"): {[key: number]: SimpleHandler};
 
 /**
  * This function allow you get first key bound to command.

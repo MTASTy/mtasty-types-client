@@ -66,8 +66,8 @@ interface BrowserSettings {
 }
 
 /**
- * This function returns a table containing the browser settings.
- * @returns A table.
+ * This function returns an object containing the browser settings.
+ * @returns An object.
  * @see https://wiki.mtasa.com/wiki/GetBrowserSettings
  **/
 declare function getBrowserSettings(): BrowserSettings;
@@ -200,7 +200,7 @@ declare function reloadBrowserPage(webBrowser: Browser): boolean;
 /**
  * This function opens a request window in order to accept the requested remote URLs.
  * - Note: You must use this function prior to calling loadBrowserURL because every domain is blocked by default.
- * @param pages A table containing all domains.
+ * @param pages An array containing all domains.
  * @param [parseAsURL=false] true if the passed addresses should be converted from URLs, false otherwise.
  * @param callback A callback function that is called as soon as the result is available.
  * @returns Returns true, if the string was successfully read, false otherwise.

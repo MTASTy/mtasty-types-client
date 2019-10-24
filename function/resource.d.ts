@@ -29,8 +29,8 @@ interface FetchRemoteOptions {
   // A string specifying the request method. (Defaults to GET or POST)
   method?: string;
 
-  // A table containing HTTP request headers. e.g.{ Pragma="no-cache" }
-  headers?: { [key: string]: string }
+  // An object containing HTTP request headers. e.g.{ Pragma="no-cache" }
+  headers?: {[key: string]: string};
 
   // An integer limiting the number of HTTP redirections to automatically follow. (Defaults to 8)
   maxRedirects?: number;
@@ -41,8 +41,8 @@ interface FetchRemoteOptions {
   // A string specifying the password for protected pages.
   password?: string;
 
-  // A table containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
-  formFields: { [key: string]: string };
+  // An object containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
+  formFields: {[key: string]: string};
 }
 
 /**
@@ -53,13 +53,13 @@ interface FetchRemoteOptions {
  * If you are using fetchRemote to connect to a PHP script, you can use file_get_contents("php://input") to read the postData sent from this function.
  * - Warning: function won't trigger inside another fetchRemote function.
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
- * @param options A table containing any request options (queueName, connectionAttempts, connectTimeout, postData, postIsBinary, method, headers, maxRedirects, username, password, formFields).
+ * @param options An object containing any request options (queueName, connectionAttempts, connectTimeout, postData, postIsBinary, method, headers, maxRedirects, username, password, formFields).
  * @param callbackFunction This is the function that should receive the data returned from the remote server.
  * @param callbackArguments The arguments that were passed into fetchRemoteю
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
  * @see https://wiki.mtasa.com/wiki/FetchRemote
  **/
-declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackFunction: SimpleHandler, callbackArguments?: any[]): object | false;
+declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackFunction: SimpleHandler, callbackArguments?: any[]): Request | false;
 
 /**
  * This function allows you to post and receive data from HTTP servers.
@@ -74,7 +74,7 @@ declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackF
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
  * @see https://wiki.mtasa.com/wiki/FetchRemote
  **/
-declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callbackArguments?: any[]): object | false;
+declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callbackArguments?: any[]): Request | false;
 
 /**
  * This function is used to return the root node of a configuration file. Config files must be predefined in a resource's meta file. An alternative way to load XML files is to use xmlLoadFile.
@@ -94,10 +94,10 @@ declare function getResourceConfig(filePath: string): XML | false;
 declare function getResourceDynamicElementRoot(theResource: Resource): Element | false;
 
 /**
- * Returns a table containing the names of the functions that a resource exports.
+ * Returns an array containing the names of the functions that a resource exports.
  * It will return the exports of the current resource if there is no argument passed in.
  * @param [theResource=currentResource] the resource of which you want to know the exported functions.
- * @returns Returns a table of function names if successful, false otherwise.
+ * @returns Returns an array of function names if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetResourceExportedFunctions
  **/
 declare function getResourceExportedFunctions(theResource?: Resource): string[] | false;
@@ -160,7 +160,7 @@ declare function getThisResource(): Resource;
 /**
  * Gets all fetchRemote and callRemote requests currently running.
  * @param [theResource=undefined] the resource to get all requests from.
- * @returns Returns a table with all requests, false if an invalid resource was provided.
+ * @returns Returns an array with all requests, false if an invalid resource was provided.
  * @see https://wiki.mtasa.com/wiki/GetRemoteRequests
  **/
 declare function getRemoteRequests(theResource?: Resource): Request[] | false;
@@ -199,8 +199,8 @@ interface RemoteRequestInfo {
   // A string containing the request post data as declared in the fetchRemote call
   postData: string;
 
-  // A table containing the request HTTP headers as declared in the fetchRemote call
-  headers: { [key: string]: string };
+  // An object containing the request HTTP headers as declared in the fetchRemote call
+  headers: {[key: string]: string};
 }
 
 /**
@@ -208,7 +208,7 @@ interface RemoteRequestInfo {
  * @param theRequest returned from fetchRemote, callRemote or getRemoteRequests.
  * @param [postDataLength=0] post data length.
  * @param [includeHeaders=false] include headers.
- * @returns Returns a table when valid, false otherwise.
+ * @returns Returns an object when valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetRemoteRequestInfo
  **/
 declare function getRemoteRequestInfo(theRequest: Request, postDataLength?: number, includeHeaders?: boolean): RemoteRequestInfo | false;

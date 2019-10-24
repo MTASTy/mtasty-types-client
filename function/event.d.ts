@@ -6,7 +6,7 @@ declare type EventHandler = (...args: any[]) => void;
  * @property totalSize A number representing how many bytes in total this transfer will transfer
  * @property percentComplete A number between 0-100 saying how much is done
  */
-declare type LatentEventStatus = {
+declare interface LatentEventStatus {
   tickStart: number;
   tickEnd: number;
   totalSize: number;
@@ -72,24 +72,24 @@ declare function cancelLatentEvent(handle: number): boolean;
  * This function gets the attached functions from the event and attached element from current script.
  * @param eventName The name of the event. For example ("onPlayerWasted").
  * @param attachedTo The element attached to.
- * @returns Returns table with attached functions, empty table otherwise.
+ * @returns Returns an array with attached functions, empty array otherwise.
  * @see https://wiki.mtasa.com/wiki/GetEventHandlers
  **/
 declare function getEventHandlers(eventName: string, attachedTo: Element): EventHandler[];
 
 /**
  * Gets the currently queued latent events.
- * The last one in the table is always the latest event queued.
+ * The last one in the array is always the latest event queued.
  * Each returned handle can be used with getLatentEventStatus or cancelLatentEvent
- * @returns Returns a table of handles or false if invalid arguments were passed.
+ * @returns Returns an array of handles or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetLatentEventHandles
  **/
-declare function getLatentEventHandles(): EventHandler[] | false;
+declare function getLatentEventHandles(): number[] | false;
 
 /**
  * Gets the status of one queued latent event.
  * @param handle A handle previous got from getLatentEventHandles.
- * @returns {LatentEventStatus} Returns a table with the following info or false if invalid arguments were passed.
+ * @returns Returns an object with the following info or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetLatentEventStatus
  **/
 declare function getLatentEventStatus(handle: number): LatentEventStatus | false;
