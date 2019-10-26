@@ -1,21 +1,16 @@
-/// <reference path="./class/blip.d.ts" />
-/// <reference path="./class/browser.d.ts" />
-/// <reference path="./class/camera.d.ts" />
-/// <reference path="./class/colshape.d.ts" />
 /// <reference path="./class/dx/dx-font.d.ts" />
 /// <reference path="./class/dx/dx-material.d.ts" />
 /// <reference path="./class/dx/dx-rendertarget.d.ts" />
 /// <reference path="./class/dx/dx-screensource.d.ts" />
 /// <reference path="./class/dx/dx-shader.d.ts" />
 /// <reference path="./class/dx/dx-texture.d.ts" />
-/// <reference path="./class/effect.d.ts" />
-/// <reference path="./class/element.d.ts" />
+
 /// <reference path="./class/engine/engine-col.d.ts" />
 /// <reference path="./class/engine/engine-dff.d.ts" />
 /// <reference path="./class/engine/engine-ifp.d.ts" />
 /// <reference path="./class/engine/engine-txd.d.ts" />
 /// <reference path="./class/engine/engine.d.ts" />
-/// <reference path="./class/file.d.ts" />
+
 /// <reference path="./class/gui/gui-browser.d.ts" />
 /// <reference path="./class/gui/gui-button.d.ts" />
 /// <reference path="./class/gui/gui-checkbox.d.ts" />
@@ -34,6 +29,19 @@
 /// <reference path="./class/gui/gui-tab.d.ts" />
 /// <reference path="./class/gui/gui-tabpanel.d.ts" />
 /// <reference path="./class/gui/gui-window.d.ts" />
+
+/// <reference path="./class/oop/matrix.d.ts" />
+/// <reference path="./class/oop/vector2.d.ts" />
+/// <reference path="./class/oop/vector3.d.ts" />
+/// <reference path="./class/oop/vector4.d.ts" />
+
+/// <reference path="./class/blip.d.ts" />
+/// <reference path="./class/browser.d.ts" />
+/// <reference path="./class/camera.d.ts" />
+/// <reference path="./class/colshape.d.ts" />
+/// <reference path="./class/effect.d.ts" />
+/// <reference path="./class/element.d.ts" />
+/// <reference path="./class/file.d.ts" />
 /// <reference path="./class/marker.d.ts" />
 /// <reference path="./class/object.d.ts" />
 /// <reference path="./class/ped.d.ts" />
@@ -51,6 +59,7 @@
 /// <reference path="./class/water.d.ts" />
 /// <reference path="./class/weapon.d.ts" />
 /// <reference path="./class/xml.d.ts" />
+
 /// <reference path="./function/audio.d.ts" />
 /// <reference path="./function/blip.d.ts" />
 /// <reference path="./function/browser.d.ts" />
