@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a 3D light in the world.
  * - Note: The direction of the light only has any effect if the light type is spot light. One light will only apply illumination effects to peds, players, wheels and number plates (like a emergency vehicle siren light does). Two or more lights will apply illumination effects to everything (excluding objects) that is in range of, at least, two of them.

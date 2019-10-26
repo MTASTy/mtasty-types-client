@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Creates a patch of fire that will spread a bit and die out after a while.
  * Because it's a client side only function, other players won't see it, so custom events or custom objects will be needed to make a fire visible to some players.

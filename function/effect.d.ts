@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Creates an effect on specified position.
  * - Note: Not all effects support rotation (e.g. the "fire" - effect doesn't).

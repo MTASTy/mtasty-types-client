@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function brings a GUI element on top of others.
  * - Note: If property "AlwaysOnTop" sets to "True", this function will return false.

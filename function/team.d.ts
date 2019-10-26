@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is for returning the number of players in the specified team.
  * @param theTeam The team you wish to retrieve the player count of.
@@ -54,4 +56,3 @@ declare function getTeamFromName(teamName: string): Team | false;
  * @see https://wiki.mtasa.com/wiki/GetTeamName
  **/
 declare function getTeamName(theTeam: Team): string | false;
-  

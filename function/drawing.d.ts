@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function converts pixels from one format to another.
  * @param pixels The pixels to convert the format of.

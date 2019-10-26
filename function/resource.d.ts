@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to call a function from another resource (which must be running).
  * The function which you wish to call must first be exported within the resource's meta.

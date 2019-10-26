@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 type SimpleHandler = () => void;
 
 /**

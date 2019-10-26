@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to get alpha (transparency) from the client's cursor.
  * @returns Returns a int, 0-255, where 255 is fully opaque and 0 is fully transparent.

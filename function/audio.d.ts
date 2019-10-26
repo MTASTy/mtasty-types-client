@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function retrieves the ID of the currently active radio channel.
  * @returns Returns the ID of the radio channel.

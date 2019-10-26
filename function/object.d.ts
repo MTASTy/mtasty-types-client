@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function breaks a specific map object.
  * - Note: Only breakable map objects can be broken.

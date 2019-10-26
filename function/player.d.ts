@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to forcefully show a player's radar map.
  * @param forceOn A boolean value representing whether or not the players radar map will be forced on.

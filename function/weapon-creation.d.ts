@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Creates a custom weapon that can fire bullets.
  * Do not confuse this with player held weapons.

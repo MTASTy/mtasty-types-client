@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a projectile of the specified type on the specified coordinates.
  * - Note: Model argument is not synchronized between clients. Clients differs from local player see always standard projectile model. Target argument can only be defined as a player or another projectile.

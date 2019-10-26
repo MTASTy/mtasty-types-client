@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a searchlight. A searchlight is a spotlight which looks like the one available in the Police Maverick.
  * - Tip: You should only use this function when you are sure that the searchlight will point upwards or downwards. Using them horizontally or almost horizontally will generate visual artifacts in the searchlight.

@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function will attach a scripting function (handler) to a console command, so that whenever a player or administrator uses the command the function is called.
  * Multiple command handlers can be attached to a single command, and they will be called in the order that the handlers were attached.

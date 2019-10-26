@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function applies a shader to one or more world textures.
  * - Tip: The resource shader_tex_names can help in finding the names of world textures. When replacing the texture for a ped using the CJ skin, set textureName to "CJ". The shader inherits the render states of the original when it is drawn, so texture stage 0 will already be set to the original texture. When using with a 'ped', ensure you have set 'ped' or 'all' in the elementTypes when calling dxCreateShader. CJ body parts textures can be replaced by using: "cj_ped_head", "cj_ped_hat", "cj_ped_torso", "cj_ped_legs", "cj_ped_feet", "cj_ped_glasses", "cj_ped_necklace", "cj_ped_watch" and "cj_ped_extra1". Latest version of shader_tex_names will show what is being used.
