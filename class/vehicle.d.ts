@@ -1,3 +1,4 @@
+/** @customConstructor Vehicle */
 declare class Vehicle extends Element {
   locked: boolean;
   readonly controller: Player | false;
