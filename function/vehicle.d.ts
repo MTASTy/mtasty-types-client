@@ -463,7 +463,7 @@ declare function getVehicleOccupants(theVehicle: Vehicle): {[seat: number]: Ped}
  * @returns Returns an number value: 0 (No override), 1 (Force off) or 2 (Force on).
  * @see https://wiki.mtasa.com/wiki/GetVehicleOverrideLights
  **/
-declare function getVehicleOverrideLights(theVehicle: Vehicle): number | false;
+declare function getVehicleOverrideLights(theVehicle: Vehicle): 0 | 1 | 2 | false;
 
 /**
  * This function gets the current paintjob on the specified vehicle.
