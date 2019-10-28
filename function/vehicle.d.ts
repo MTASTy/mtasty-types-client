@@ -471,7 +471,7 @@ declare function getVehicleOverrideLights(theVehicle: Vehicle): number | false;
  * @returns Returns an number representing the current paintjob on the vehicle.
  * @see https://wiki.mtasa.com/wiki/GetVehiclePaintjob
  **/
-declare function getVehiclePaintjob(theVehicle: Vehicle): number | false;
+declare function getVehiclePaintjob(theVehicle: Vehicle): 0 | 1 | 2 | 3 | false;
 
 /**
  * This function returns the current state of a specifed panel on the vehicle.
