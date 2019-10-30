@@ -36,24 +36,24 @@ declare function getCameraClip(): [boolean, boolean];
  * This function returns the field of view of the dynamic camera as set by setCameraFieldOfView.
  * @param cameraMode: the camera mode to get the field of view of: "player", "vehicle", "vehicle_max".
  * @returns Returns one number - the field of view angle.
- * @see https://wiki.mtasa.com/wiki/GetCameraClip
+ * @see https://wiki.mtasa.com/wiki/GetCameraFieldOfView
  * @tupleReturn
  **/
-declare function getCameraFieldOfView(cameraMode: "player" | "vehicle" | "vehicle_max"): number | false;
+declare function getCameraFieldOfView(cameraMode: "player" | "vehicle" | "vehicle_max"): number;
 
 /**
  * This function returns what goggle effect is currently affecting the camera.
  * @returns String indicating the current camera goggle effect.
  * @see https://wiki.mtasa.com/wiki/GetCameraGoggleEffect
  **/
-declare function getCameraGoggleEffect(): string;
+declare function getCameraGoggleEffect(): "normal" | "nightvision" | "thermalvision";
 
 /**
  * Returns the interior of the local camera (independent of the interior of the local player).
- * @returns Returns a number indicating the camera's interior, false if the argument is invalid.
+ * @returns Returns a number indicating the camera's interior.
  * @see https://wiki.mtasa.com/wiki/GetCameraInterior
  **/
-declare function getCameraInterior(): number | false;
+declare function getCameraInterior(): number;
 
 /**
  * This function gets the position of the camera and the position of the point it is facing.
@@ -75,7 +75,7 @@ declare function getCameraShakeLevel(): number;
  * @returns Returns an element of the target if the function was successful, or false if bad arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetCameraTarget
  **/
-declare function getCameraTarget(): Element | false;
+declare function getCameraTarget(): Player | false;
 
 /**
  * This function allows you to get the camera's view mode.
@@ -84,7 +84,7 @@ declare function getCameraTarget(): Element | false;
  * @returns Returns a number indicating the current camera view mode.
  * @see https://wiki.mtasa.com/wiki/GetCameraViewMode
  **/
-declare function getCameraViewMode(): number;
+declare function getCameraViewMode(): 0 | 1 | 2 | 3 | 4 | 5;
 
 /**
  * This function sets if the camera will "collide" with any objects or vehicles in its way.
