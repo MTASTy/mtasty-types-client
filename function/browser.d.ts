@@ -277,3 +277,11 @@ declare function setBrowserVolume(volume: number): boolean;
  * @see https://wiki.mtasa.com/wiki/ToggleBrowserDevTools
  **/
 declare function toggleBrowserDevTools(webBrowser: Browser, visible: boolean): boolean;
+
+/**
+ * This function returns a specific browser's volume.
+ * @param webBrowser: A browser element.
+ * @returns Returns a specific browser's volume, or false if the browser element passed to the function is invalid.
+ * @see https://wiki.multitheftauto.com/wiki/GetBrowserVolume
+ **/
+declare function getBrowserVolume(webBrowser: Browser): number | false;
