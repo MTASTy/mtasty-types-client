@@ -124,14 +124,13 @@ declare function stopObject(theObject: MapObject): boolean;
  **/
 declare function toggleObjectRespawn(theObject: MapObject, respawn: boolean): boolean;
 
-// TODO: center_of_mass Vector3D - (x, y, z)
 interface ObjectPropertyFormat {
   mass: number;
   turn_mass: number;
   accuracy: number;
   air_resistance: number;
   elasticity: number;
-  center_of_mass: any;
+  center_of_mass: Vector3;
   buoyancy: number;
 }
 
@@ -139,11 +138,10 @@ interface ObjectPropertyFormat {
  * This function gets a property of the specified map object.
  * @param theObject the map object you wish to get a property of.
  * @param property the property you want to get.
- * @returns On success: table for all, 3 numbers for center_of_mass or number for other properties. On failure: false.
+ * @returns On success: object for all, 3 numbers for center_of_mass or number for other properties. On failure: false.
  * @see https://wiki.mtasa.com/wiki/GetObjectProperty
- * @tupleReturn
  **/
-declare function getObjectProperty(theObject: MapObject, property: string): [ObjectPropertyFormat] | [number, number, number] | [number] | [false];
+declare function getObjectProperty(theObject: MapObject, property: "all" | "mass" | "turn_mass" | "accuracy" | "air_resistance" | "elasticity" | "center_of_mass" | "buoyancy"): ObjectPropertyFormat | Vector3 | number | false;
 
 /**
  * This function sets a property of the specified map object.
@@ -153,4 +151,4 @@ declare function getObjectProperty(theObject: MapObject, property: string): [Obj
  * @returns Returns true if the property was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetObjectProperty
  **/
-declare function setObjectProperty(theObject: MapObject, property: string, value: any): boolean;
+declare function setObjectProperty(theObject: MapObject, property: "mass" | "turn_mass" | "accuracy" | "air_resistance" | "elasticity" | "center_of_mass" | "buoyancy", value: Vector3 | number): boolean;
