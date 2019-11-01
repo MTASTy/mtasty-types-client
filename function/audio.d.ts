@@ -60,7 +60,6 @@ declare interface SoundEffectName {
  **/
 declare function getSoundEffects(sound: Sound | Sound3D): SoundEffectName | false;
 
-// TODO: Fix types
 /**
  * This function gets the fast fourier transform data for an audio stream which is an array of numbers representing the current audio frame. This allows things like visualisations.
  * A fast fourier transform generates an array of all the frequencies of the current audio frame which starts at the bass end of the spectrum to mids to highs in that order.
@@ -298,6 +297,7 @@ declare function playSoundFrontEnd(sound: number): boolean;
  * @see https://wiki.mtasa.com/wiki/SetRadioChannel
  **/
 declare function setRadioChannel(id: number): boolean;
+
 /**
  * Used to enable or disable specific sound effects.
  * Use a player element to control a players voice with this function.
