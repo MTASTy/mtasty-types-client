@@ -1,4 +1,4 @@
-declare class Ped extends Element {
+declare class Ped extends BaseElement {
   vehicle: Vehicle | false;
   readonly vehicleSeat: number | false;
   // canBeKnockedOffBike: boolean; // Use method
@@ -633,7 +633,7 @@ declare class Ped extends Element {
    * @returns Returns true if the function was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetPedLookAt
    **/
-  setLookAt(x: number, y: number, z: number, time?: number, blend?: number, target?: Element): boolean;
+  setLookAt(x: number, y: number, z: number, time?: number, blend?: number, target?: BaseElement): boolean;
 
   /**
    * Sets the walking style of a ped.

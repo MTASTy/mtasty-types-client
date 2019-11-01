@@ -179,7 +179,7 @@ declare function getPedStat(thePed: Ped, stat: number): number | false;
  * @returns Returns the element that's being targeted, or false if there isn't one. This is only effective on physical GTA elements, namely: Players, Peds, Vehicles, Objects.
  * @see https://wiki.mtasa.com/wiki/GetPedTarget
  **/
-declare function getPedTarget(thePed: Ped): Element | false;
+declare function getPedTarget(thePed: Ped): BaseElement | false;
 
 /**
  * This function allows retrieval of where a ped's target is blocked.
@@ -599,7 +599,7 @@ declare function setPedHeadless(thePed: Ped, headState: boolean): boolean;
  * @returns
  * @see https://wiki.mtasa.com/wiki/SetPedLookAt
  **/
-declare function setPedLookAt(thePed: Ped, x: number, y: number, z: number, time?: number, blend?: number, target?: Element): boolean;
+declare function setPedLookAt(thePed: Ped, x: number, y: number, z: number, time?: number, blend?: number, target?: BaseElement): boolean;
 
 /**
  * This function can be used to set a ped on fire or extinguish a fire on it.

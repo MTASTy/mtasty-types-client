@@ -1,3 +1,3 @@
-declare class GuiFont extends Element {
+declare class GuiFont extends BaseElement {
 
 }

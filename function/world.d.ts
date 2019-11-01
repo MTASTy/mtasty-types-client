@@ -351,7 +351,7 @@ declare function isAmbientSoundEnabled(theType: "gunfire" | "general"): boolean;
  * @returns Returns true if the line between the specified points is clear, false if there's an obstacle or if invalid parameters are passed.
  * @see https://wiki.mtasa.com/wiki/IsLineOfSightClear
  **/
-declare function isLineOfSightClear(startX: number, startY: number, startZ: number, endX: number, endY: number, endZ: number, checkBuildings?: boolean, checkVehicles?: boolean, checkPeds?: boolean, checkObjects?: boolean, checkDummies?: boolean, seeThroughStuff?: boolean, ignoreSomeObjectsForCamera?: boolean, ignoredElement?: Element): boolean;
+declare function isLineOfSightClear(startX: number, startY: number, startZ: number, endX: number, endY: number, endZ: number, checkBuildings?: boolean, checkVehicles?: boolean, checkPeds?: boolean, checkObjects?: boolean, checkDummies?: boolean, seeThroughStuff?: boolean, ignoreSomeObjectsForCamera?: boolean, ignoredElement?: BaseElement): boolean;
 
 /**
  * This function allows you to check if certain world sound effects have not been disabled by setWorldSoundEnabled.
@@ -398,7 +398,7 @@ declare function isWorldSpecialPropertyEnabled(propname: string): boolean;
  * @see https://wiki.mtasa.com/wiki/ProcessLineOfSight
  * @tupleReturn
  **/
-declare function processLineOfSight(startX: number, startY: number, startZ: number, endX: number, endY: number, endZ: number, checkBuildings?: boolean, checkVehicles?: boolean, checkPlayers?: boolean, checkObjects?: boolean, checkDummies?: boolean, seeThroughStuff?: boolean, ignoreSomeObjectsForCamera?: boolean, shootThroughStuff?: boolean, ignoredElement?: Element, includeWorldModelInformation?: boolean, bIncludeCarTyres?: boolean): [boolean] | [boolean, number, number, number, Element, number, number, number, number, number, number, number, number, number, number, number, number, number, number];
+declare function processLineOfSight(startX: number, startY: number, startZ: number, endX: number, endY: number, endZ: number, checkBuildings?: boolean, checkVehicles?: boolean, checkPlayers?: boolean, checkObjects?: boolean, checkDummies?: boolean, seeThroughStuff?: boolean, ignoreSomeObjectsForCamera?: boolean, shootThroughStuff?: boolean, ignoredElement?: BaseElement, includeWorldModelInformation?: boolean, bIncludeCarTyres?: boolean): [boolean] | [boolean, number, number, number, BaseElement, number, number, number, number, number, number, number, number, number, number, number, number, number, number];
 
 /**
  * This function is used to remove a world object.

@@ -1,4 +1,4 @@
-declare class Pickup extends Element {
+declare class Pickup extends BaseElement {
   readonly ammo: number; // 0 if it's no weapon pickup
   readonly amount: number; // 0 if it's no health or amor pickup
   readonly weapon: number;
@@ -67,7 +67,7 @@ declare class Pickup extends Element {
    * @returns Returns an integer of the type of the pickup.
    * @see https://wiki.mtasa.com/wiki/GetPickupType
    **/
-  // TODO: class Element already contain method "getType"
+  // TODO: class BaseElement already contain method "getType"
   // getType(): number;
 
   /**

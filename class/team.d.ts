@@ -1,3 +1,3 @@
-declare class Team extends Element {
+declare class Team extends BaseElement {
 
 }

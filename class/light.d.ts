@@ -1,7 +1,7 @@
-declare class Light extends Element {
+declare class Light extends BaseElement {
   direction: Vector3;
   radius: number;
-  // TODO: class Element already contain variable "type"
+  // TODO: class BaseElement already contain variable "type"
   // readonly type: number;
 
   /**
@@ -28,7 +28,7 @@ declare class Light extends Element {
    * @returns Returns an int containing the type of the specified light.
    * @see https://wiki.mtasa.com/wiki/GetLightType
    **/
-  // TODO: class Element already contain method "getType"
+  // TODO: class BaseElement already contain method "getType"
   // getType(): number;
 
   /**

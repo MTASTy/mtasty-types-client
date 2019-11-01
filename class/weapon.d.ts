@@ -1,3 +1,3 @@
-declare class Weapon extends Element {
+declare class Weapon extends BaseElement {
 
 }

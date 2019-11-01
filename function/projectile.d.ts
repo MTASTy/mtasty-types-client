@@ -20,7 +20,7 @@
  * @returns Returns a projectile element if projectile creation was successful. Returns false if unable to create a projectile (wrong weapon ID or projectiles limit was reached).
  * @see https://wiki.mtasa.com/wiki/CreateProjectile
  **/
-declare function createProjectile(creator: Element, weaponType: number, posX?: number, posY?: number, posZ?: number, force?: number, target?: Element, rotX?: number, rotY?: number, rotZ?: number, velX?: number, velY?: number, velZ?: number, model?: number): Projectile | false;
+declare function createProjectile(creator: BaseElement, weaponType: number, posX?: number, posY?: number, posZ?: number, force?: number, target?: BaseElement, rotX?: number, rotY?: number, rotZ?: number, velX?: number, velY?: number, velZ?: number, model?: number): Projectile | false;
 
 /**
  * This function can be used to detonate a players satchels.
@@ -43,7 +43,7 @@ declare function getProjectileCounter(projectile: Projectile): number | false;
  * @returns Returns the element which created the projectile if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetProjectileCreator
  **/
-declare function getProjectileCreator(theProjectile: Projectile): Element | false;
+declare function getProjectileCreator(theProjectile: Projectile): BaseElement | false;
 
 /**
  * This function returns the force of the specified projectile.
@@ -59,7 +59,7 @@ declare function getProjectileForce(theProjectile: Projectile): number | false;
  * @returns Returns the element which is the projectile's target if the projectile is valid and can have a target (like a heat-seeking rocket), false otherwise. If the projectile is a satchel charge, returns the element at which it is glued to (or undefined if it isn't glued to any).
  * @see https://wiki.mtasa.com/wiki/GetProjectileTarget
  **/
-declare function getProjectileTarget(theProjectile: Projectile): Element | false | undefined;
+declare function getProjectileTarget(theProjectile: Projectile): BaseElement | false | undefined;
 
 /**
  * This function returns the type of the specified projectile.

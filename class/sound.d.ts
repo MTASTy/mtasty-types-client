@@ -1,3 +1,3 @@
-declare class Sound extends Element {
+declare class Sound extends BaseElement {
 
 }

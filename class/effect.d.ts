@@ -1,4 +1,4 @@
-declare class Effect extends Element {
+declare class Effect extends BaseElement {
   speed: number;
   density: number;
 

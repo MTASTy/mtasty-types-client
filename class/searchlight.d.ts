@@ -1,3 +1,3 @@
-declare class SearchLight extends Element {
+declare class SearchLight extends BaseElement {
 
 }

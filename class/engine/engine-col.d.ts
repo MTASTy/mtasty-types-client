@@ -1,3 +1,3 @@
-declare class EngineCOL extends Element {
+declare class EngineCOL extends BaseElement {
 
 }

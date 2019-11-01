@@ -79,7 +79,7 @@ declare function getWeaponState(theWeapon: Weapon): string | false;
  * @see https://wiki.mtasa.com/wiki/GetWeaponTarget
  * @tupleReturn
  **/
-declare function getWeaponTarget(theWeapon: Weapon): [number, number, number] | [undefined] | [Element] | [false];
+declare function getWeaponTarget(theWeapon: Weapon): [number, number, number] | [undefined] | [BaseElement] | [false];
 
 /**
  * This function resets the firing rate of a custom weapon to the default one.
@@ -167,7 +167,7 @@ declare function setWeaponState(theWeapon: Weapon, theState: string): boolean;
  * @returns Returns true on success, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetWeaponTarget
  **/
-declare function setWeaponTarget(theWeapon: Weapon, theTarget: Element, theComponent?: number): boolean;
+declare function setWeaponTarget(theWeapon: Weapon, theTarget: BaseElement, theComponent?: number): boolean;
 
 /**
  * This function sets the target of a custom weapon. There are 3 different targeting modes, which are explained below.

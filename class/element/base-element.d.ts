@@ -1,5 +1,5 @@
 /** @customConstructor Element */
-declare class Element {
+declare class BaseElement {
   callPropagationEnabled: boolean;
   readonly waitingForGroundToLoad: boolean;
   readonly onScreen: boolean;
@@ -9,8 +9,8 @@ declare class Element {
   id: string;
   readonly type: string;
   readonly colShape: ColShape;
-  readonly parent: Element | false;
-  readonly attachedTo: Element | false;
+  readonly parent: BaseElement | false;
+  readonly attachedTo: BaseElement | false;
   readonly attached: boolean;
   health: number;
   alpha: number;
@@ -20,7 +20,7 @@ declare class Element {
   collisions: boolean;
   frozen: boolean;
   readonly inWater: boolean;
-  readonly lowLOD: Element | false;
+  readonly lowLOD: BaseElement | false;
   dimension: number;
   interior: number;
   readonly distanceFromCentreOfMassToBaseOfModel: number;
@@ -36,12 +36,6 @@ declare class Element {
   velocity: Vector3;
   angularVelocity: Vector3;
   readonly isElement: boolean;
-
-  // static getByID(id: string): Element | false;
-  // static getAllByType(type: string): Element[];
-  // static getByType(theType: string, startat?: Element, streamedIn?: boolean): Element[] | false;
-  // static getWithinColShape(theShape: ColShape, elemType?: string): Element[] | false;
-  // static getElementsWithinRange(x: number, y: number, z: number, range: number, elemType?: string): Element[] | false;
 
   /**
    * This function is used to create a new dummy element in the element tree which do not necessarily represent an entity within the San Andreas world.
@@ -75,7 +69,7 @@ declare class Element {
    * @returns Returns true if the attaching process was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/AttachElements
    **/
-  attach(theAttachToElement: Element, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
+  attach(theAttachToElement: BaseElement, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
 
   /**
    * This function detaches attached elements from one another.
@@ -83,7 +77,7 @@ declare class Element {
    * @returns Returns true if the detaching was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/DetachElements
    **/
-  detach(theAttachToElement?: Element): boolean;
+  detach(theAttachToElement?: BaseElement): boolean;
 
   /**
    * This function destroys an element and all elements within it in the hierarchy (its children, the children of those children etc).
@@ -160,7 +154,7 @@ declare class Element {
    * @returns Returns true if the elements collide with eachother, false otherwise.
    * @see https://wiki.mtasa.com/wiki/IsElementCollidableWith
    **/
-  isCollidableWith(withElement: Element): boolean;
+  isCollidableWith(withElement: BaseElement): boolean;
 
   /**
    * This functions checks whether or not an element is attached to another element.
@@ -231,7 +225,7 @@ declare class Element {
    * @returns This function returns an array that contains a list of elements that the parent has. If the element has no children, it will return an empty araay. It will return false if the parent element does not exist.
    * @see https://wiki.mtasa.com/wiki/GetElementChildren
    **/
-  getChildren(theType?: string): Element[];
+  getChildren(theType?: string): BaseElement[];
 
   /**
    * This function returns one of the child elements of a given parent element.
@@ -240,7 +234,7 @@ declare class Element {
    * @returns Returns the requested element if it exists, or false if it doesn't.
    * @see https://wiki.mtasa.com/wiki/GetElementChild
    **/
-  getChild(index: number): Element | false;
+  getChild(index: number): BaseElement | false;
 
   /**
    * This function returns the number of children an element has.
@@ -263,7 +257,7 @@ declare class Element {
    * @returns This returns the parent as an element. It returns false if theElement is invalid, or is the root node.
    * @see https://wiki.mtasa.com/wiki/GetElementParent
    **/
-  getParent(): Element | false;
+  getParent(): BaseElement | false;
 
   // TODO: Check it
   getBoundingBox(): [Vector3, Vector3];
@@ -353,21 +347,21 @@ declare class Element {
    * @returns Returns a low LOD element if successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/GetLowLODElement
    **/
-  getLowLOD(): Element | false;
+  getLowLOD(): BaseElement | false;
 
   /**
    * This function returns an array of all the elements attached to the specified element
    * @returns Returns an array of all the elements attached to the specified element.
    * @see https://wiki.mtasa.com/wiki/GetAttachedElements
    **/
-  getAttachedElements(): Element[];
+  getAttachedElements(): BaseElement[];
 
   /**
    * This function determines the element that the specified element is attached to.
    * @returns Returns the element that the chosen element is attached to, or false if the element isn't attached to another element.
    * @see https://wiki.mtasa.com/wiki/GetElementAttachedTo
    **/
-  getAttachedTo(): Element | false;
+  getAttachedTo(): BaseElement | false;
 
   /**
    * This function returns the offsets of an element that has been attached to another element using attachElements.
@@ -401,7 +395,7 @@ declare class Element {
 
   /**
    * This function stores element data under a certain key, attached to an element.
-   * Element data set using this is then synced with all clients and the server.
+   * BaseElement data set using this is then synced with all clients and the server.
    * The data can contain server created elements, but you should avoid passing data that is not able to be synced such as xmlnodes, acls, aclgroups etc.
    * As element data is synced to all clients, it can generate a lot of network traffic and be heavy on performance.
    * Events are much more efficient for sending data from a client to the server only, or from the server to a specific client.
@@ -438,7 +432,7 @@ declare class Element {
    * @returns Returns true if both elements are valid, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetElementParent
    **/
-  setParent(parent: Element): boolean;
+  setParent(parent: BaseElement): boolean;
 
   /**
    * This function sets the position of an element to the specified coordinates.
@@ -603,7 +597,7 @@ declare class Element {
    * @returns Returns true if the assignment was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetLowLODElement
    **/
-  setLowLODElement(lowLODElement: Element): boolean;
+  setLowLODElement(lowLODElement: BaseElement): boolean;
 
   /**
    * This function enables/disables call propagation on a certain element. Look at the example for a practical application.

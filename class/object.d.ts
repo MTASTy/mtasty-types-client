@@ -1,5 +1,5 @@
 /** @customConstructor Object */
-declare class MapObject extends Element {
+declare class MapObject extends BaseElement {
   scale: [number, number, number];
   breakable: boolean;
   mass: number;

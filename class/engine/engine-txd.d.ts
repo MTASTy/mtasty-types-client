@@ -1,3 +1,3 @@
-declare class EngineTXD extends Element {
+declare class EngineTXD extends BaseElement {
 
 }

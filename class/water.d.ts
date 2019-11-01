@@ -1,3 +1,3 @@
-declare class Water extends Element {
+declare class Water extends BaseElement {
 
 }

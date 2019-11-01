@@ -1,3 +1,3 @@
-declare class RadarArea extends Element {
+declare class RadarArea extends BaseElement {
 
 }

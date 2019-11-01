@@ -1,3 +1,3 @@
-declare class EngineIFP extends Element {
+declare class EngineIFP extends BaseElement {
 
 }

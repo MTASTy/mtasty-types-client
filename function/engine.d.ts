@@ -146,7 +146,7 @@ declare function engineLoadTXD(txdFileOrRawData: string, filteringEnabled?: bool
  * @returns Returns true if the shader was successfully removed, false otherwise.
  * @see https://wiki.mtasa.com/wiki/EngineRemoveShaderFromWorldTexture
  **/
-declare function engineRemoveShaderFromWorldTexture(shader: DxShader, textureName: string, targetElement?: Element): boolean;
+declare function engineRemoveShaderFromWorldTexture(shader: DxShader, textureName: string, targetElement?: BaseElement): boolean;
 
 /**
  * This function replaces a specific internal (default) animation with a custom one that has been loaded using engineLoadIFP function. This function only affects a specific player or ped, the internal animation is not replaced for everyone, for instance, different players and peds are able to have completely different crouching, walking, and fighting etc., animations running simultaneously at the same time. Also, it's not synchronized, you'll need to execute this function on every client to synchronize it. Internal animations replaced using this function can still be played with setPedAnimation. You can restore replaced animations back with engineRestoreAnimation. It should be noted that partial animations are not supported, you can still replace them, but they won't work as intended, for example, "FightA_block" animation from "ped" block is a partial animation, you can't replace it properly, only a few animations are partial, rest of them are not, so it shouldn't be a problem.

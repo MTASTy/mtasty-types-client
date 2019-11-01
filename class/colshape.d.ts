@@ -1,4 +1,4 @@
-declare class ColShape extends Element {
+declare class ColShape extends BaseElement {
   readonly shapeType: number;
 
   // lua_classfunction(luaVM, "Circle", "createColCircle");

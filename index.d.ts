@@ -40,7 +40,10 @@
 /// <reference path="./class/camera.d.ts" />
 /// <reference path="./class/colshape.d.ts" />
 /// <reference path="./class/effect.d.ts" />
-/// <reference path="./class/element.d.ts" />
+
+/// <reference path="./class/element/base-element.d.ts" />
+/// <reference path="./class/element/element.d.ts" />
+
 /// <reference path="./class/file.d.ts" />
 /// <reference path="./class/marker.d.ts" />
 /// <reference path="./class/object.d.ts" />

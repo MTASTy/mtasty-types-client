@@ -1,5 +1,5 @@
 /** @customConstructor Vehicle */
-declare class Vehicle extends Element {
+declare class Vehicle extends BaseElement {
   locked: boolean;
   readonly controller: Player | false;
   readonly occupants: { [seat: number]: Ped } | false;

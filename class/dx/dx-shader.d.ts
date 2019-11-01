@@ -33,7 +33,7 @@ declare class DxShader extends DxMaterial {
    * @returns Returns true if the shader was successfully removed, false otherwise.
    * @see https://wiki.mtasa.com/wiki/EngineRemoveShaderFromWorldTexture
    **/
-  removeFromWorldTexture(textureName: string, targetElement?: Element): boolean;
+  removeFromWorldTexture(textureName: string, targetElement?: BaseElement): boolean;
 
   /**
    * This sets a named parameter for a shader element.
