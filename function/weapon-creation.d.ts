@@ -62,7 +62,7 @@ declare function getWeaponFlags(theWeapon: Weapon, theFlag: string): boolean;
  * @returns This function was intended to return the player which owns the custom weapon, and false if an error occured. However, at the moment it always returns false.
  * @see https://wiki.mtasa.com/wiki/GetWeaponOwner
  **/
-declare function getWeaponOwner(theWeapon: Weapon): boolean;
+declare function getWeaponOwner(theWeapon: Weapon): Player | false;
 
 /**
  * This function gets the state of a custom weapon.
@@ -102,7 +102,7 @@ declare function setWeaponAmmo(theWeapon: Weapon, totalAmmo: number): boolean;
  * This function sets the ammo left in a custom weapon's magazine/clip.
  * @param theWeapon The weapon to set the clip ammo of.
  * @param clipAmmo The amount of ammo in the clip.
- * @returns This function returns true if the arguments are valid and the weapon clip ammo could be changed; false otherwise.
+ * @returns This function returns true if the arguments are valid and the weapon clip ammo could be changed, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetWeaponClipAmmo
  **/
 declare function setWeaponClipAmmo(theWeapon: Weapon, clipAmmo: number): boolean;
@@ -156,7 +156,7 @@ declare function setWeaponProperty(weaponName: string, weaponSkill: "pro" | "std
  * @returns Returns true on success, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetWeaponState
  **/
-declare function setWeaponState(theWeapon: Weapon, theState: string): boolean;
+declare function setWeaponState(theWeapon: Weapon, theState: "reloading" | "firing" | "ready"): boolean;
 
 /**
  * This function sets the target of a custom weapon. There are 3 different targeting modes, which are explained below.
