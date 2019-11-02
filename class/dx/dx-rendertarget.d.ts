@@ -1,3 +1,4 @@
+/** @customConstructor DxRenderTarget */
 declare class DxRenderTarget extends DxTexture {
   /**
    * This function creates a render target element, which is a special type of texture that can be drawn on with the dx functions.

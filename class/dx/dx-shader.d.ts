@@ -1,3 +1,4 @@
+/** @customConstructor DxShader */
 declare class DxShader extends DxMaterial {
   // tessellation: Vector2; // Change only
 

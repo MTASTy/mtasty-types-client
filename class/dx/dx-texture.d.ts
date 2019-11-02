@@ -1,3 +1,4 @@
+/** @customConstructor DxTexture */
 declare class DxTexture extends DxMaterial {
   /**
    * This function creates a texture element that can be used in the dxDraw functions.

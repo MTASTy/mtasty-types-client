@@ -1,3 +1,4 @@
+/** @customConstructor DxFont */
 declare class DxFont {
   // static getHeight(scale?: number, font?: DxFont | string): number;
   // static getTextWidth(text: string, scale?: number, font?: DxFont | string, bColorCoded?: boolean): number | false;

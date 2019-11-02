@@ -1,3 +1,4 @@
+/** @customConstructor DxScreenSource */
 declare class DxScreenSource extends DxTexture {
   /**
    * This function creates a screen source, which is a special type of texture that contains the screen as rendered by GTA.
