@@ -1,3 +1,4 @@
+/** @customConstructor Light */
 declare class Light extends BaseElement {
   direction: Vector3;
   radius: number;
