@@ -1,3 +1,4 @@
+/** @customConstructor Team */
 declare class Team extends BaseElement {
   readonly name: string;
   readonly players: Player[];
