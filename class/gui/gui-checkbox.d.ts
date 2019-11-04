@@ -1,3 +1,3 @@
-declare class GuiCheckBox extends GuiElement {
+declare class GuiCheckBox extends BaseGuiElement {
 
 }

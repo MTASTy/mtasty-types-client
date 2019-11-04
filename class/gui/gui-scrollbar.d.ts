@@ -1,3 +1,3 @@
-declare class GuiScrollBar extends GuiElement {
+declare class GuiScrollBar extends BaseGuiElement {
 
 }

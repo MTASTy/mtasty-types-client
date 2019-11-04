@@ -1,3 +1,3 @@
-declare class GuiComboBox extends GuiElement {
+declare class GuiComboBox extends BaseGuiElement {
 
 }

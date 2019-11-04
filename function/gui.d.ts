@@ -7,7 +7,7 @@
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiBringToFront
  **/
-declare function guiBringToFront(guiElement: GuiElement): boolean;
+declare function guiBringToFront(guiElement: BaseGuiElement): boolean;
 
 // TODO: Need test
 /**
@@ -38,7 +38,7 @@ declare function guiCreateFont(filepath: string, size?: number): GuiFont | false
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiBlur
  **/
-declare function guiBlur(guiElement: GuiElement): boolean;
+declare function guiBlur(guiElement: BaseGuiElement): boolean;
 
 /**
  * This function focuses a defocused GUI element.
@@ -47,7 +47,7 @@ declare function guiBlur(guiElement: GuiElement): boolean;
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiFocus
  **/
-declare function guiFocus(guiElement: GuiElement): boolean;
+declare function guiFocus(guiElement: BaseGuiElement): boolean;
 
 /**
  * Alpha represents the transparency of a gui element.
@@ -56,7 +56,7 @@ declare function guiFocus(guiElement: GuiElement): boolean;
  * @returns This function returns a positive number in between 0 and 1 of the gui element's current alpha, or false if it could not be retrieved.
  * @see https://wiki.mtasa.com/wiki/GuiGetAlpha
  **/
-declare function guiGetAlpha(guiElement: GuiElement): number | false;
+declare function guiGetAlpha(guiElement: BaseGuiElement): number | false;
 
 /**
  * This function is used to get the type of the current cursor image.
@@ -71,7 +71,7 @@ declare function guiGetCursorType(): string;
  * @returns Returns true if the element is enabled, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiGetEnabled
  **/
-declare function guiGetEnabled(guiElement: GuiElement): boolean;
+declare function guiGetEnabled(guiElement: BaseGuiElement): boolean;
 
 /**
  * This function is used to get the current font that is used to draw text in GUI elements.
@@ -79,7 +79,7 @@ declare function guiGetEnabled(guiElement: GuiElement): boolean;
  * @returns A string containing the name of the element's current font, or false if the gui element passed to the function is invalid or the custom GUI font that is used, or undefined otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiGetFont
  **/
-declare function guiGetFont(guiElement: GuiElement): string | GuiFont | undefined | false;
+declare function guiGetFont(guiElement: BaseGuiElement): string | GuiFont | undefined | false;
 
 /**
  * This function checks whether user input is focused on the GUI or the game.
@@ -94,7 +94,7 @@ declare function guiGetInputEnabled(): boolean;
  * @returns Returns a string defining the current input mode.
  * @see https://wiki.mtasa.com/wiki/GuiGetInputMode
  **/
-declare function guiGetInputMode(): string;
+declare function guiGetInputMode(): "allow_binds" | "no_binds" | "no_binds_when_editing";
 
 /**
  * This function allows retrieval of a GUI element's current position, relative to its parent.
@@ -104,7 +104,7 @@ declare function guiGetInputMode(): string;
  * @tupleReturn
  * @see https://wiki.mtasa.com/wiki/GuiGetPosition
  **/
-declare function guiGetPosition(guiElement: GuiElement, relative: boolean): [number, number] | [false];
+declare function guiGetPosition(guiElement: BaseGuiElement, relative: boolean): [number, number] | [false];
 
 /**
  * This function gets a list of the CEGUI property names and values of a GUI element.
@@ -113,7 +113,7 @@ declare function guiGetPosition(guiElement: GuiElement, relative: boolean): [num
  * @returns If the function succeeds, the return value is an object. Its keys are property names, the corresponding values are the values of the properties (both names and values are always strings). If the function fails, it returns false.
  * @see https://wiki.mtasa.com/wiki/GuiGetProperties
  **/
-declare function guiGetProperties(guiElement: GuiElement): {[key: string]: any} | false;
+declare function guiGetProperties(guiElement: BaseGuiElement): {[key: string]: any} | false;
 
 /**
  * This function gets the value of a specific CEGUI property of a GUI element.
@@ -123,7 +123,7 @@ declare function guiGetProperties(guiElement: GuiElement): {[key: string]: any} 
  * @returns If the function succeeds, it returns a string with the value of the property. If it fails, it returns false.
  * @see https://wiki.mtasa.com/wiki/GuiGetProperty
  **/
-declare function guiGetProperty(guiElement: GuiElement, property: string): string | false;
+declare function guiGetProperty(guiElement: BaseGuiElement, property: string): string | false;
 
 /**
  * This function retrieves the local screen size according to the resolution they are using.
@@ -141,7 +141,7 @@ declare function guiGetScreenSize(): [number, number];
  * @see https://wiki.mtasa.com/wiki/GuiGetSize
  * @tupleReturn
  **/
-declare function guiGetSize(theElement: GuiElement, relative: boolean): [number, number] | [false];
+declare function guiGetSize(theElement: BaseGuiElement, relative: boolean): [number, number] | [false];
 
 /**
  * This function is used to get the text of GUI elements like edit boxes, labels, buttons etc.
@@ -149,7 +149,7 @@ declare function guiGetSize(theElement: GuiElement, relative: boolean): [number,
  * @returns Returns a string containing the requested element's text, or false if the gui element passed to the function is invalid.
  * @see https://wiki.mtasa.com/wiki/GuiGetText
  **/
-declare function guiGetText(guiElement: GuiElement): string | false;
+declare function guiGetText(guiElement: BaseGuiElement): string | false;
 
 /**
  * This function determines if a GUI element is visible.
@@ -157,7 +157,7 @@ declare function guiGetText(guiElement: GuiElement): string | false;
  * @returns Returns true if the element is visible, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiGetVisible
  **/
-declare function guiGetVisible(guiElement: GuiElement): boolean;
+declare function guiGetVisible(guiElement: BaseGuiElement): boolean;
 
 /**
  * This function moves a GUI element to the very back of all other GUI elements.
@@ -165,7 +165,7 @@ declare function guiGetVisible(guiElement: GuiElement): boolean;
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiMoveToBack
  **/
-declare function guiMoveToBack(guiElement: GuiElement): boolean;
+declare function guiMoveToBack(guiElement: BaseGuiElement): boolean;
 
 /**
  * This changes the alpha level (the visibleness/transparency) of a GUI element.
@@ -174,7 +174,7 @@ declare function guiMoveToBack(guiElement: GuiElement): boolean;
  * @returns Returns true if the gui element's alpha was successfully changed, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiSetAlpha
  **/
-declare function guiSetAlpha(guiElement: GuiElement, alpha: number): boolean;
+declare function guiSetAlpha(guiElement: BaseGuiElement, alpha: number): boolean;
 
 /**
  * This function enables/disables a GUI element.
@@ -184,7 +184,7 @@ declare function guiSetAlpha(guiElement: GuiElement, alpha: number): boolean;
  * @returns If the function succeeds it returns true, if it fails it returns false.
  * @see https://wiki.mtasa.com/wiki/GuiSetEnabled
  **/
-declare function guiSetEnabled(guiElement: GuiElement, enabled: boolean): boolean;
+declare function guiSetEnabled(guiElement: BaseGuiElement, enabled: boolean): boolean;
 
 /**
  * This function sets the font of a GUI element to be used when drawing text.
@@ -193,7 +193,7 @@ declare function guiSetEnabled(guiElement: GuiElement, enabled: boolean): boolea
  * @returns Returns true if the font has been successfully set on the gui element, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiSetFont
  **/
-declare function guiSetFont(guiElement: GuiElement, font: GuiFont | string): boolean;
+declare function guiSetFont(guiElement: BaseGuiElement, font: GuiFont | string): boolean;
 
 /**
  * This function enables or disables input focus for the GUI.
@@ -223,7 +223,7 @@ declare function guiSetInputMode(mode: "allow_binds" | "no_binds" | "no_binds_wh
  * @returns Returns true if the position has been successfully set, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiSetPosition
  **/
-declare function guiSetPosition(guiElement: GuiElement, x: number, y: number, relative: boolean): boolean;
+declare function guiSetPosition(guiElement: BaseGuiElement, x: number, y: number, relative: boolean): boolean;
 
 /**
  * This function sets the value of a specific CEGUI property of a GUI element.
@@ -234,7 +234,7 @@ declare function guiSetPosition(guiElement: GuiElement, x: number, y: number, re
  * @returns If the function succeeds it returns true, if it fails it returns false.
  * @see https://wiki.mtasa.com/wiki/GuiSetProperty
  **/
-declare function guiSetProperty(guiElement: GuiElement, property: string, value: string): boolean;
+declare function guiSetProperty(guiElement: BaseGuiElement, property: string, value: string): boolean;
 
 /**
  * This function sets the dimensions (size) of a GUI element.
@@ -247,7 +247,7 @@ declare function guiSetProperty(guiElement: GuiElement, property: string, value:
  * @returns Returns true if the gui element's size was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiSetSize
  **/
-declare function guiSetSize(guiElement: GuiElement, width: number, height: number, relative: boolean): boolean;
+declare function guiSetSize(guiElement: BaseGuiElement, width: number, height: number, relative: boolean): boolean;
 
 /**
  * This function sets the text of a GUI element.
@@ -256,7 +256,7 @@ declare function guiSetSize(guiElement: GuiElement, width: number, height: numbe
  * @returns Returns true if text has been successfully set on the gui element, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiSetText
  **/
-declare function guiSetText(guiElement: GuiElement, text: string): boolean;
+declare function guiSetText(guiElement: BaseGuiElement, text: string): boolean;
 
 /**
  * This function changes the visibility state of a GUI element.
@@ -265,7 +265,7 @@ declare function guiSetText(guiElement: GuiElement, text: string): boolean;
  * @returns Returns true if the element's visibility could be changed, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiSetVisible
  **/
-declare function guiSetVisible(guiElement: GuiElement, state: boolean): boolean;
+declare function guiSetVisible(guiElement: BaseGuiElement, state: boolean): boolean;
 
 /**
  * This function returns whether the ingame chatbox is being used (accepting chatbox input) or not.
@@ -334,7 +334,7 @@ declare function setDebugViewActive(enabled: boolean): boolean;
  * @returns Returns a gui-browser element if it was created successfully, false otherwise. Returns also false, if the user disabled remote pages and isLocal was set to false.
  * @see https://wiki.mtasa.com/wiki/GuiCreateBrowser
  **/
-declare function guiCreateBrowser(x: number, y: number, width: number, height: number, isLocal: boolean, isTransparent: boolean, isRelative: boolean, parent?: GuiElement): GuiBrowser | false;
+declare function guiCreateBrowser(x: number, y: number, width: number, height: number, isLocal: boolean, isTransparent: boolean, isRelative: boolean, parent?: BaseGuiElement): GuiBrowser | false;
 
 /**
  * This function creates gets the browser element behind a gui-browser (a browser that has been created via guiCreateBrowser).
@@ -356,7 +356,7 @@ declare function guiGetBrowser(browser: GuiBrowser): Browser | false;
  * @returns Returns an element of the created button if it was successfully created, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateButton
  **/
-declare function guiCreateButton(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: GuiElement): GuiButton | false;
+declare function guiCreateButton(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: BaseGuiElement): GuiButton | false;
 
 /**
  * This function gets a checkbox's selection state.
@@ -388,7 +388,7 @@ declare function guiCheckBoxSetSelected(theCheckbox: GuiCheckBox, state: boolean
  * @returns Returns element of the checkbox if it was created succesfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateCheckBox
  **/
-declare function guiCreateCheckBox(x: number, y: number, width: number, height: number, text: string, selected: boolean, relative: boolean, parent?: GuiElement): GuiCheckBox | false;
+declare function guiCreateCheckBox(x: number, y: number, width: number, height: number, text: string, selected: boolean, relative: boolean, parent?: BaseGuiElement): GuiCheckBox | false;
 
 /**
  * This function creates a combobox GUI element, which you can compare to a gridlist with a dropdown feature.
@@ -403,7 +403,7 @@ declare function guiCreateCheckBox(x: number, y: number, width: number, height: 
  * @returns Returns an element of the created combobox if it was successfully created, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateComboBox
  **/
-declare function guiCreateComboBox(x: number, y: number, width: number, height: number, caption: string, relative: boolean, parent?: GuiElement): GuiComboBox | false;
+declare function guiCreateComboBox(x: number, y: number, width: number, height: number, caption: string, relative: boolean, parent?: BaseGuiElement): GuiComboBox | false;
 
 /**
  * Adds an item to a combobox.
@@ -507,7 +507,7 @@ declare function guiComboBoxSetSelected(comboBox: GuiComboBox, itemIndex: number
  * @returns Returns a gui-edit element of the created edit box if it was successfully created, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateEdit
  **/
-declare function guiCreateEdit(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: GuiElement): GuiEdit | false;
+declare function guiCreateEdit(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: BaseGuiElement): GuiEdit | false;
 
 /**
  * This function returns the caret (the text cursor) position within the editbox.
@@ -591,7 +591,7 @@ declare function guiEditSetReadOnly(guiElement: GuiEdit, status: boolean): boole
  * @returns Returns an element of the created gridlist if it was successfully created, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateGridList
  **/
-declare function guiCreateGridList(x: number, y: number, width: number, height: number, relative: boolean, parent?: GuiElement): GuiGridList | false;
+declare function guiCreateGridList(x: number, y: number, width: number, height: number, relative: boolean, parent?: BaseGuiElement): GuiGridList | false;
 
 /**
  * This function is used to create columns in grid lists.
@@ -917,7 +917,7 @@ declare function guiGridListSetSortingEnabled(gridList: GuiGridList, fPosition: 
  * @returns Returns a gui-memo element of the created memo if it was successfully created, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateMemo
  **/
-declare function guiCreateMemo(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: GuiElement): GuiMemo | false;
+declare function guiCreateMemo(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: BaseGuiElement): GuiMemo | false;
 
 /**
  * This function returns the caret (the text cursor) position within the memo box.
@@ -982,7 +982,7 @@ declare function guiMemoSetReadOnly(theMemo: GuiMemo, status: boolean): boolean;
  * @returns Returns element of the progress bar if it was created succesfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateProgressBar
  **/
-declare function guiCreateProgressBar(x: number, y: number, width: number, height: number, relative: boolean, parent?: GuiElement): GuiProgressBar | false;
+declare function guiCreateProgressBar(x: number, y: number, width: number, height: number, relative: boolean, parent?: BaseGuiElement): GuiProgressBar | false;
 
 /**
  * This function gets the progress of a progress bar as a percentage.
@@ -1013,7 +1013,7 @@ declare function guiProgressBarSetProgress(theProgressbar: GuiProgressBar, progr
  * @returns Returns element of the radio button if it was created succesfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateRadioButton
  **/
-declare function guiCreateRadioButton(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: GuiElement): GuiRadioButton | false;
+declare function guiCreateRadioButton(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: BaseGuiElement): GuiRadioButton | false;
 
 /**
  * This function gets a radio button's selection state.
@@ -1045,7 +1045,7 @@ declare function guiRadioButtonSetSelected(guiRadioButton: GuiRadioButton, state
  * @returns Returns a gui-scrollbar if it was created successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateScrollBar
  **/
-declare function guiCreateScrollBar(x: number, y: number, width: number, height: number, horizontal: boolean, relative: boolean, parent?: GuiElement): GuiScrollBar | false;
+declare function guiCreateScrollBar(x: number, y: number, width: number, height: number, horizontal: boolean, relative: boolean, parent?: BaseGuiElement): GuiScrollBar | false;
 
 /**
  * This function gets the scroll amount of a scrollbar as a percentage.
@@ -1075,7 +1075,7 @@ declare function guiScrollBarSetScrollPosition(theScrollBar: GuiScrollBar, amoun
  * @returns The gui-element if created, otherwise false.
  * @see https://wiki.mtasa.com/wiki/GuiCreateScrollPane
  **/
-declare function guiCreateScrollPane(x: number, y: number, width: number, height: number, relative: boolean, parent?: GuiElement): GuiScrollPane | false;
+declare function guiCreateScrollPane(x: number, y: number, width: number, height: number, relative: boolean, parent?: BaseGuiElement): GuiScrollPane | false;
 
 /**
  * This function is used to get the position of a horizontal scroll pane as a percentage.
@@ -1133,7 +1133,7 @@ declare function guiScrollPaneSetVerticalScrollPosition(verticalScrollPane: GuiS
  * @returns Returns element if image was created successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateStaticImage
  **/
-declare function guiCreateStaticImage(x: number, y: number, width: number, height: number, path: string, relative: boolean, parent?: GuiElement): GuiStaticImage | false;
+declare function guiCreateStaticImage(x: number, y: number, width: number, height: number, path: string, relative: boolean, parent?: BaseGuiElement): GuiStaticImage | false;
 
 /**
  * This function gets the native size of image.
@@ -1166,7 +1166,7 @@ declare function guiStaticImageLoadImage(theElement: GuiStaticImage, filename: s
  * @returns Returns a GUI tab panel element if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateTabPanel
  **/
-declare function guiCreateTabPanel(x: number, y: number, width: number, height: number, relative: boolean, parent?: GuiElement): GuiTabPanel | false;
+declare function guiCreateTabPanel(x: number, y: number, width: number, height: number, relative: boolean, parent?: BaseGuiElement): GuiTabPanel | false;
 
 /**
  * This function returns the currently selected tab in the specified tab panel.
@@ -1194,7 +1194,7 @@ declare function guiSetSelectedTab(tabPanel: GuiTabPanel, theTab: GuiTab): boole
  * @returns Returns a tab element if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateTab
  **/
-declare function guiCreateTab(text: string, parent: GuiElement): GuiTab | false;
+declare function guiCreateTab(text: string, parent: BaseGuiElement): GuiTab | false;
 
 /**
  * This function deletes a tab from a tab panel.
@@ -1217,7 +1217,7 @@ declare function guiDeleteTab(tabToDelete: GuiTab, tabPanel: GuiTabPanel): boole
  * @returns Returns an element of the created label if it was successfully created, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiCreateLabel
  **/
-declare function guiCreateLabel(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: GuiElement): GuiLabel | false;
+declare function guiCreateLabel(x: number, y: number, width: number, height: number, text: string, relative: boolean, parent?: BaseGuiElement): GuiLabel | false;
 
 /**
  * This function gets the color of a label.

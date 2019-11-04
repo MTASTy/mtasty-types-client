@@ -1,3 +1,3 @@
-declare class GuiMemo extends GuiElement {
+declare class GuiMemo extends BaseGuiElement {
 
 }

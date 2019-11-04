@@ -1,3 +1,3 @@
-declare class GuiStaticImage extends GuiElement {
+declare class GuiStaticImage extends BaseGuiElement {
 
 }

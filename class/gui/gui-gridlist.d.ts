@@ -1,3 +1,3 @@
-declare class GuiGridList extends GuiElement {
+declare class GuiGridList extends BaseGuiElement {
 
 }

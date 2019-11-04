@@ -1,3 +1,3 @@
-declare class GuiWindow extends GuiElement {
+declare class GuiWindow extends BaseGuiElement {
 
 }

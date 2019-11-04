@@ -1,3 +1,3 @@
-declare class GuiRadioButton extends GuiElement {
+declare class GuiRadioButton extends BaseGuiElement {
 
 }

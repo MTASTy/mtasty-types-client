@@ -122,7 +122,7 @@ declare function getResourceFromName(resourceName: string): Resource | false;
  * @returns Returns the root GUI element that contains all the other GUI elements.
  * @see https://wiki.mtasa.com/wiki/GetResourceGUIElement
  **/
-declare function getResourceGUIElement(theResource?: Resource): GuiElement | false;
+declare function getResourceGUIElement(theResource?: Resource): BaseGuiElement | false;
 
 /**
  * This function gets the name of the specified resource.

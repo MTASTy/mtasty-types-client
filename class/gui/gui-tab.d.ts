@@ -1,3 +1,3 @@
-declare class GuiTab extends GuiElement {
+declare class GuiTab extends BaseGuiElement {
 
 }

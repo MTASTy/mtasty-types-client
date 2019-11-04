@@ -1,3 +1,3 @@
-declare class GuiProgressBar extends GuiElement {
+declare class GuiProgressBar extends BaseGuiElement {
 
 }
