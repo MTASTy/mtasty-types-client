@@ -1,3 +1,4 @@
+/** @customConstructor Browser */
 declare class Browser extends DxTexture {
   url: string;
   readonly loading: boolean;
@@ -6,8 +7,25 @@ declare class Browser extends DxTexture {
   volume: number; // From 0.0 to 1.0
   // devTools: boolean; // Change only
 
-  // static requestDomains(pages: string[], parseAsURL?: boolean, callback?: SimpleHandler): boolean;
-  // static isDomainBlocked(address: string, isURL?: boolean): boolean | undefined;
+  /**
+   * This function opens a request window in order to accept the requested remote URLs.
+   * - Note: You must use this function prior to calling loadBrowserURL because every domain is blocked by default.
+   * @param pages An array containing all domains.
+   * @param [parseAsURL=false] true if the passed addresses should be converted from URLs, false otherwise.
+   * @param callback A callback function that is called as soon as the result is available.
+   * @returns Returns true, if the string was successfully read, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/RequestBrowserDomains
+   **/
+  static requestDomains(pages: string[], parseAsURL?: boolean, callback?: SimpleHandler): boolean;
+
+  /**
+   * This function checks if the specified URL is blocked from being loaded.
+   * @param address A website URL.
+   * @param [isURL=false] true if address should be parsed as URL, false otherwise.
+   * @returns Returns false if the URL is able to be loaded, true if it is blocked and undefined if an invalid domain/URL was passed.
+   * @see https://wiki.mtasa.com/wiki/IsBrowserDomainBlocked
+   **/
+  static isDomainBlocked(address: string, isURL?: boolean): boolean | undefined;
 
   /**
    * This function creates a new web browser element.
