@@ -21,7 +21,7 @@ declare class GuiScrollBar extends BaseGuiElement {
    * @returns Returns a number ranging between 0 and 100, representing the amount the scrollbar has been scrolled.
    * @see https://wiki.mtasa.com/wiki/GuiScrollBarGetScrollPosition
    **/
-  getScrollPosition(): number | false;
+  getScrollPosition(): number;
 
   /**
    * This function is used to set the scroll amount of a scrollbar as a percentage.
