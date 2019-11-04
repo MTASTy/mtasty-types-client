@@ -1,3 +1,4 @@
+/** @customConstructor Player */
 declare class Player extends Ped {
   nametagShowing: boolean;
   nametagText: string;
@@ -100,7 +101,9 @@ declare class Player extends Ped {
    * @returns Returns a player element for the player with the nickname provided. If there is no player with that name, false is returned.
    * @see https://wiki.mtasa.com/wiki/GetPlayerFromName
    **/
-  create(playerName: string): Player | false;
+  static create(playerName: string): Player | false;
+
+  protected constructor();
 
   /**
    * This will change the text of a player's nickname in the world to something besides the nickname he chose.
