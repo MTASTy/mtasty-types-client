@@ -736,7 +736,7 @@ declare function guiGridListGetSelectedItems(gridList: GuiGridList): {[key: numb
 /**
  * This function retrieves the current selection mode of a gui gridlist.
  * @param gridList The gridlist you want to get the selection mode of.
- * @returns Returns the ID of the current gridlist's selection mode  or false if invalid arguments were passed.
+ * @returns Returns the ID of the current gridlist's selection mode or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GuiGridListGetSelectionMode
  **/
 declare function guiGridListGetSelectionMode(gridList: GuiGridList): number | false;
@@ -755,7 +755,7 @@ declare function guiGridListIsSortingEnabled(gridList: GuiGridList): boolean;
  * @returns Returns a number between 0 and 100 indicating the vertical scroll position, or false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiGridListGetVerticalScrollPosition
  **/
-declare function guiGridListIsSortingEnabled(gridList: GuiGridList): number | false;
+declare function guiGridListGetVerticalScrollPosition(gridList: GuiGridList): number | false;
 
 /**
  * This allows you to insert a new row after a specified row, and simultaneously set text.
@@ -777,6 +777,15 @@ declare function guiGridListInsertRowAfter(gridList: GuiGridList, rowIndex?: num
  * @see https://wiki.mtasa.com/wiki/GuiGridListRemoveColumn
  **/
 declare function guiGridListRemoveColumn(gridList: GuiGridList, columnIndex: number): boolean;
+
+/**
+ * This allows you to delete rows that exist in grid lists.
+ * @param gridList The grid list you want to remove a row from.
+ * @param rowIndex Row ID.
+ * @returns Returns true if the grid list row was successfully removed, false otherwise.
+ * @see https://wiki.multitheftauto.com/wiki/GuiGridListRemoveRow
+ **/
+declare function guiGridListRemoveRow(gridList: GuiGridList, rowIndex: number): boolean;
 
 /**
  * This function is used to change the column title of a gridlist column.
@@ -890,7 +899,7 @@ declare function guiGridListSetSelectionMode(gridList: GuiGridList, mode: number
  * This function will allow you to toggle this.
  * @param gridList The GUI gridlist you wish to toggle the sorting of.
  * @param enabled A boolean representing whether the sorting is enabled, or disabled.
- * @returns Returns true if sorting was successfully toggled., false otherwise.
+ * @returns Returns true if sorting was successfully toggled, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiGridListSetSortingEnabled
  **/
 declare function guiGridListSetSortingEnabled(gridList: GuiGridList, enabled: boolean): boolean;
@@ -902,7 +911,7 @@ declare function guiGridListSetSortingEnabled(gridList: GuiGridList, enabled: bo
  * @returns Returns true if the vertical scroll position was set, or false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiGridListSetVerticalScrollPosition
  **/
-declare function guiGridListSetSortingEnabled(gridList: GuiGridList, fPosition: number): boolean;
+declare function guiGridListSetVerticalScrollPosition(gridList: GuiGridList, fPosition: number): boolean;
 
 /**
  * This function creates a new GUI memo.
