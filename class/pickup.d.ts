@@ -1,3 +1,4 @@
+/** @customConstructor Pickup */
 declare class Pickup extends BaseElement {
   readonly ammo: number; // 0 if it's no weapon pickup
   readonly amount: number; // 0 if it's no health or amor pickup
