@@ -1092,7 +1092,7 @@ declare function guiCreateScrollPane(x: number, y: number, width: number, height
  * @returns Returns a number ranging between 0 and 100, or false otherwise.
  * @see https://wiki.mtasa.com/wiki/GuiScrollPaneGetHorizontalScrollPosition
  **/
-declare function guiScrollBarSetScrollPosition(horizontalScrollPane: GuiScrollPane): number | false;
+declare function guiScrollPaneGetHorizontalScrollPosition(horizontalScrollPane: GuiScrollPane): number | false;
 
 /**
  * This function is used to get the position of a vertical scroll pane as a percentage.
