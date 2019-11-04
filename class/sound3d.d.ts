@@ -1,3 +1,4 @@
+/** @customConstructor Sound3D */
 declare class Sound3D extends Sound {
   minDistance: number;
   maxDistance: number;

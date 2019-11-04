@@ -1,3 +1,4 @@
+/** @customConstructor Sound */
 declare class Sound extends BaseElement {
   playbackPosition: number | false;
   speed: number | false;
