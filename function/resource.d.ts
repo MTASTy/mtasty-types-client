@@ -1,5 +1,13 @@
 /** @noSelfInFile */
 
+declare enum ResourceState {
+  Loaded = "loaded",
+  Running = "running",
+  Starting = "starting",
+  Stopping = "stopping",
+  FailedToLoad = "failed to load",
+}
+
 /**
  * This function is used to call a function from another resource (which must be running).
  * The function which you wish to call must first be exported within the resource's meta.
@@ -149,7 +157,7 @@ declare function getResourceRootElement(theResource?: Resource): BaseElement | f
  * @returns If successful returns a string with the resource state in it, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetResourceState
  **/
-declare function getResourceState(theResource: Resource): string | false;
+declare function getResourceState(theResource: Resource): ResourceState | false;
 
 /**
  * This function retrieves the resource from which the function call was made.
