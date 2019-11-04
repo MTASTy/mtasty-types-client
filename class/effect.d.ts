@@ -1,21 +1,199 @@
+/** @customConstructor Effect */
 declare class Effect extends BaseElement {
   speed: number;
   density: number;
 
-  // static "addBlood", "fxAddBlood"
-  // static "addBulletImpact", "fxAddBulletImpact"
-  // static "addBulletSplash", "fxAddBulletSplash"
-  // static "addDebris", "fxAddDebris"
-  // static "addFootSplash", "fxAddFootSplash"
-  // static "addGlass", "fxAddGlass"
-  // static "addGunshot", "fxAddGunshot"
-  // static "addPunchImpact", "fxAddPunchImpact"
-  // static "addSparks", "fxAddSparks"
-  // static "addTankFire", "fxAddTankFire"
-  // static "addTyreBurst", "fxAddTyreBurst"
-  // static "addWaterHydrant", "fxAddWaterHydrant"
-  // static "addWaterSplash", "fxAddWaterSplash"
-  // static "addWood", "fxAddWood"
+  /**
+   * Creates a blood splatter particle effect.
+   * @param posX the world coordinates where the effect originates.
+   * @param posY the world coordinates where the effect originates.
+   * @param posZ the world coordinates where the effect originates.
+   * @param dirX a direction vector indicating where the blood flies to.
+   * @param dirY a direction vector indicating where the blood flies to.
+   * @param dirZ a direction vector indicating where the blood flies to.
+   * @param [count=1] the number of flying droplets to create.
+   * @param [brightness=1] the brightness. Ranges from 0 (almost black) to 1 (normal color).
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddBlood
+   **/
+  static addBlood(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number, count?: number, brightness?: number): boolean;
+
+  /**
+   * Creates a bullet impact particle effect, consisting of a small smoke cloud and a number of sparks.
+   * @param posX the world coordinates where the effect originates.
+   * @param posY the world coordinates where the effect originates.
+   * @param posZ the world coordinates where the effect originates.
+   * @param dirX a vector indicating the direction of the effect.
+   * @param dirY a vector indicating the direction of the effect.
+   * @param dirZ a vector indicating the direction of the effect.
+   * @param [smokeSize=1] the size of the smoke cloud.
+   * @param [sparkCount=1] the number of sparks to create.
+   * @param [smokeIntensity=1] the amount/transparency of smoke, ranges from 0 to 1.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddBulletImpact
+   **/
+  static addBulletImpact(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number, smokeSize?: number, sparkCount?: number, smokeIntensity?: number): boolean;
+
+  /**
+   * This function creates a bullet splash particle effect, normally created when shooting into water.
+   * @param posX A number representing the x position of the splash.
+   * @param posY A number representing the y position of the splash.
+   * @param posZ A number representing the z position of the splash.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddBulletSplash
+   **/
+  static addBulletSplash(posX: number, posY: number, posZ: number): boolean;
+
+  /**
+   * Creates a debris particle effect (e.g. bits that fly off a car when ramming a wall).
+   * @param posX the world coordinates where the debris originates.
+   * @param posY the world coordinates where the debris originates.
+   * @param posZ the world coordinates where the debris originates.
+   * @param [colorR=255] the color and alpha (transparency) of the debris effect.
+   * @param [colorG=0] the color and alpha (transparency) of the debris effect.
+   * @param [colorB=0] the color and alpha (transparency) of the debris effect.
+   * @param [colorA=255] the color and alpha (transparency) of the debris effect.
+   * @param [scale=1] the size of the chunks.
+   * @param [count=1] the number of chunks to create.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddDebris
+   **/
+  addDebris(posX: number, posY: number, posZ: number, colorR?: number, colorG?: number, colorB?: number, colorA?: number, scale?: number, count?: number): boolean;
+
+  /**
+   * This function creates a foot splash particle effect, normally created when walking into water.
+   * @param posX A number representing the x position of the splash.
+   * @param posY A number representing the y position of the splash.
+   * @param posZ A number representing the z position of the splash.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddFootSplash
+   **/
+  static addFootSplash(posX: number, posY: number, posZ: number): boolean;
+
+  /**
+   * This function creates a glass particle effect.
+   * @param posX A number representing the x position of the glass.
+   * @param posY A number representing the y position of the glass.
+   * @param posZ A number representing the z position of the glass.
+   * @param [colorR=255] the color and alpha (transparency) of the glass effect.
+   * @param [colorG=0] the color and alpha (transparency) of the glass effect.
+   * @param [colorB=0] the color and alpha (transparency) of the glass effect.
+   * @param [colorA=255] the color and alpha (transparency) of the glass effect.
+   * @param [scale=1] A number representing the size of the particle effect, where 1 is the standard size.
+   * @param [count=1] The density of the particle effect.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddGlass
+   **/
+  static addGlass(posX: number, posY: number, posZ: number, colorR?: number, colorG?: number, colorB?: number, colorA?: number, scale?: number, count?: number): boolean;
+
+  /**
+   * This function creates a gunshot particle effect.
+   * @param posX the world coordinates where the effect originates.
+   * @param posY the world coordinates where the effect originates.
+   * @param posZ the world coordinates where the effect originates.
+   * @param dirX a direction vector indicating where the bullet is fired.
+   * @param dirY a direction vector indicating where the bullet is fired.
+   * @param dirZ a direction vector indicating where the bullet is fired.
+   * @param [includeSparks=true] A bool representing whether the particle effect will generate sparks.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddGunshot
+   **/
+  static addGunshot(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number, includeSparks?: boolean): boolean;
+
+  /**
+   * Creates a punch impact particle effect (a small dust cloud).
+   * @param posX the world coordinates where the effect originates.
+   * @param posY the world coordinates where the effect originates.
+   * @param posZ the world coordinates where the effect originates.
+   * @param dirX a vector indicating the movement direction of the effect.
+   * @param dirY a vector indicating the movement direction of the effect.
+   * @param dirZ a vector indicating the movement direction of the effect.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddPunchImpact
+   **/
+  static addPunchImpact(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number): boolean;
+
+  /**
+   * Creates a number of sparks originating from a point or along a line.
+   * @param posX the world coordinates where the sparks originate.
+   * @param posY the world coordinates where the sparks originate.
+   * @param posZ the world coordinates where the sparks originate.
+   * @param dirX a direction vector indicating where the sparks fly to. The longer this vector is, the faster the sparks fly.
+   * @param dirY a direction vector indicating where the sparks fly to. The longer this vector is, the faster the sparks fly.
+   * @param dirZ a direction vector indicating where the sparks fly to. The longer this vector is, the faster the sparks fly.
+   * @param [force=1] speed factor.
+   * @param [count=1] the number of effects to create.
+   * @param [acrossLineX=0] a vector starting at the pos coordinates. If specified, the sparks will be created along a line going from pos to pos - acrossLine. If not specified, all sparks originate from the point at pos.
+   * @param [acrossLineY=0] a vector starting at the pos coordinates. If specified, the sparks will be created along a line going from pos to pos - acrossLine. If not specified, all sparks originate from the point at pos.
+   * @param [acrossLineZ=0] a vector starting at the pos coordinates. If specified, the sparks will be created along a line going from pos to pos - acrossLine. If not specified, all sparks originate from the point at pos.
+   * @param [blur=false] if false, creates standard bullet impact-like sparks. If true, adds motion blur to the sparks.
+   * @param [spread=1] determines how strongly the particles deviate from each other. With low values the particles will stay quite close together, high values will make them fly in all directions. Also affects their speed.
+   * @param [life=1] the higher this value, the longer the sparks survive before they disappear.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddSparks
+   **/
+  static addSparks(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number, force?: number, count?: number, acrossLineX?: number, acrossLineY?: number, acrossLineZ?: number, blur?: boolean, spread?: number, life?: number): boolean;
+
+  /**
+   * This function creates a tank firing particle effect.
+   * @param posX the world coordinates where the effect originates.
+   * @param posY the world coordinates where the effect originates.
+   * @param posZ the world coordinates where the effect originates.
+   * @param dirX a direction vector indicating where the tank fire is directed to.
+   * @param dirY a direction vector indicating where the tank fire is directed to.
+   * @param dirZ a direction vector indicating where the tank fire is directed to.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddTankFire
+   **/
+  static addTankFire(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number): boolean;
+
+  /**
+   * Creates a tyre burst particle effect (a small white smoke puff).
+   * @param posX the world coordinates where the puff originates.
+   * @param posY the world coordinates where the puff originates.
+   * @param posZ the world coordinates where the puff originates.
+   * @param dirX a vector indicating the movement direction of the effect.
+   * @param dirY a vector indicating the movement direction of the effect.
+   * @param dirZ a vector indicating the movement direction of the effect.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddTyreBurst
+   **/
+  static addTyreBurst(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number): boolean;
+
+  /**
+   * This function creates a water hydrant particle effect.
+   * @param posX A number representing the x position of the hydrant.
+   * @param posY A number representing the y position of the hydrant.
+   * @param posZ A number representing the z position of the hydrant.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddWaterHydrant
+   **/
+  static addWaterHydrant(posX: number, posY: number, posZ: number): boolean;
+
+  /**
+   * This function creates a water splash particle effect.
+   * @param posX A number representing the x position of the splash.
+   * @param posY A number representing the y position of the splash.
+   * @param posZ A number representing the z position of the splash.
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddWaterSplash
+   **/
+  static addWaterSplash(posX: number, posY: number, posZ: number): boolean;
+
+  /**
+   * Creates a wood splinter particle effect.
+   * @param posX the world coordinates where the effect originates.
+   * @param posY the world coordinates where the effect originates.
+   * @param posZ the world coordinates where the effect originates.
+   * @param dirX a direction vector indicating where the wood splinters fly to.
+   * @param dirY a direction vector indicating where the wood splinters fly to.
+   * @param dirZ a direction vector indicating where the wood splinters fly to.
+   * @param [count=1] the number of splinters to create.
+   * @param [brightness=1] the brightness. Ranges from 0 (black) to 1 (normal color).
+   * @returns Returns a true if the operation was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FxAddWood
+   **/
+  static addWood(posX: number, posY: number, posZ: number, dirX: number, dirY: number, dirZ: number, count?: number, brightness?: number): boolean;
 
   /**
    * Creates an effect on specified position.
