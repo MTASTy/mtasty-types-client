@@ -386,8 +386,9 @@ declare function getVehicleMaxPassengers(theVehicleOrModelid: Vehicle | number):
  * @param dummy The dummy whose position you want to get.
  * @returns Returns the position of given dummy if everything went fine, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetVehicleModelDummyPosition
+ * @tupleReturn
  **/
-declare function getVehicleModelDummyPosition(modelID: number, dummy: string): {[key: number]: number} | false;
+declare function getVehicleModelDummyPosition(modelID: number, dummy: string): [number, number, number] | [false];
 
 /**
  * This function returns the position of the exhaust fumes the vehicle model emits.
