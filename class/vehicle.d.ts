@@ -45,14 +45,80 @@ declare class Vehicle extends BaseElement {
   // TODO: Check it
   gravity: Vector3;
 
-  // static getModelFromName(name: string): number | false;
-  // static getNameFromModel(model: number): string | false;
-  // static getOriginalHandling(modelID: number): VehicleHandling;
-  // static getUpgradeSlotName(slotOrUpgrade: number): string | false;
-  // static getModelExhaustFumesPosition(modelID: number): Vector3 | [false];
-  // static getVehicleModelDummyPosition(modelID: number, dummy: string): {[key: number]: number} | false;
-  // static setModelExhaustFumesPosition(modelID: number, posX: number, posY: number, posZ: number): boolean;
-  // static setVehicleModelDummyPosition(modelID: number, dummy: string, x: number, y: number, z: number): boolean;
+  /**
+   * This function returns the position of the exhaust fumes the vehicle model emits.
+   * @param modelID The vehicle model ID.
+   * @returns Returns the position of the exhaust fumes if everything went fine or false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleModelExhaustFumesPosition
+   **/
+  static getModelExhaustFumesPosition(modelID: number): Vector3 | false;
+
+  /**
+   * This function gets position of the dummies contained in a vehicle model.
+   * @param modelID The model ID which you want to apply the change to.
+   * @param dummy The dummy whose position you want to get.
+   * @returns Returns the position of given dummy if everything went fine, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleModelDummyPosition
+   **/
+  static getVehicleModelDummyPosition(modelID: number, dummy: string): Vector3 | false;
+
+  /**
+   * This function sets the position of the exhaust fumes the vehicle model emits.
+   * Use setVehicleComponentPosition to adjust the exhaust position.
+   * @param modelID The model ID which you want to apply the change to.
+   * @param posX The desired position.
+   * @param posY The desired position.
+   * @param posZ The desired position.
+   * @returns Returns true if everything went fine, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/SetVehicleModelExhaustFumesPosition
+   **/
+  static setModelExhaustFumesPosition(modelID: number, posX: number, posY: number, posZ: number): boolean;
+
+  /**
+   * This function sets the position of the dummies contained in a vehicle model.
+   * Use setVehicleComponentPosition to adjust the vehicle component positions.
+   * @param modelID The model ID which you want to apply the change to.
+   * @param dummy The dummy whose position you want to change.
+   * @param x The desired position.
+   * @param y The desired position.
+   * @param z The desired position.
+   * @returns Returns true if everything went fine, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/SetVehicleModelDummyPosition
+   **/
+  static setVehicleModelDummyPosition(modelID: number, dummy: string, x: number, y: number, z: number): boolean;
+
+  /**
+   * This function retrieves the model ID of a vehicle as an number value from its name.
+   * @param name A string containing the name of the vehicle.
+   * @returns Returns an number if the name exists, false otherwise. If you use this function on vehicles with shared names, such as "police", it will return the earliest occurrence of that vehicle's ID.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleModelFromName
+   **/
+  static getModelFromName(name: string): number | false;
+
+  /**
+   * Gets the name of a vehicle by its model ID.
+   * @param model This is the vehicle model ID.
+   * @returns Returns the name of the vehicle if the model ID was valid, empty string otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleNameFromModel
+   **/
+  static getNameFromModel(model: number): string | false;
+
+  /**
+   * This function returns an object of the original vehicle handling.
+   * Use getVehicleHandling if you wish to get the current handling of a vehicle, or getModelHandling for a specific vehicle model.
+   * @param modelID The vehicle ID you wish to get the original handling from.
+   * @returns Returns an object containing all the handling data, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetOriginalHandling
+   **/
+  static getOriginalHandling(modelID: number): VehicleHandling | false;
+
+  /**
+   * This function returns the name of an upgrade slot name (e.g. roof, spoiler).
+   * @param slotOrUpgrade the slot ID or corresponding upgrade ID of which you want the name.
+   * @returns Returns a string with the slot name if a valid slot or upgrade ID was given, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleUpgradeSlotName
+   **/
+  static getUpgradeSlotName(slotOrUpgrade: number): string | false;
 
   /**
    * This function creates a vehicle at the specified location.
