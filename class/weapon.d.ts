@@ -1,3 +1,4 @@
+/** @customConstructor Weapon */
 declare class Weapon extends BaseElement {
   clipAmmo: number;
   ammo: number;
