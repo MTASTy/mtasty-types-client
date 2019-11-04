@@ -1,3 +1,4 @@
+/** @customConstructor Ped */
 declare class Ped extends BaseElement {
   vehicle: Vehicle | false;
   readonly vehicleSeat: number | false;
