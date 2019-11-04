@@ -1,3 +1,4 @@
+/** @customConstructor Projectile */
 declare class Projectile extends BaseElement {
   counter: number;
   // TODO: class BaseElement already contain variable "type"
