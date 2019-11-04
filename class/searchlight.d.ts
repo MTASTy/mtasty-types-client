@@ -1,3 +1,4 @@
+/** @customConstructor SearchLight */
 declare class SearchLight extends BaseElement {
   startPosition: Vector3;
   endPosition: Vector3;
