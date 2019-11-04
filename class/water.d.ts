@@ -1,3 +1,4 @@
+/** @customConstructor Water */
 declare class Water extends BaseElement {
   level: number;
   height: number;
