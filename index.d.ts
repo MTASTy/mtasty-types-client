@@ -1,9 +1,20 @@
+/// <reference path="./class/colshape/colshape.d.ts" />
+/// <reference path="./class/colshape/colshape-circle.d.ts" />
+/// <reference path="./class/colshape/colshape-cuboid.d.ts" />
+/// <reference path="./class/colshape/colshape-polygon.d.ts" />
+/// <reference path="./class/colshape/colshape-rectangle.d.ts" />
+/// <reference path="./class/colshape/colshape-sphere.d.ts" />
+/// <reference path="./class/colshape/colshape-tube.d.ts" />
+
 /// <reference path="./class/dx/dx-font.d.ts" />
 /// <reference path="./class/dx/dx-material.d.ts" />
 /// <reference path="./class/dx/dx-rendertarget.d.ts" />
 /// <reference path="./class/dx/dx-screensource.d.ts" />
 /// <reference path="./class/dx/dx-shader.d.ts" />
 /// <reference path="./class/dx/dx-texture.d.ts" />
+
+/// <reference path="./class/element/base-element.d.ts" />
+/// <reference path="./class/element/element.d.ts" />
 
 /// <reference path="./class/engine/engine-col.d.ts" />
 /// <reference path="./class/engine/engine-dff.d.ts" />
@@ -38,11 +49,7 @@
 /// <reference path="./class/blip.d.ts" />
 /// <reference path="./class/browser.d.ts" />
 /// <reference path="./class/camera.d.ts" />
-/// <reference path="./class/colshape.d.ts" />
 /// <reference path="./class/effect.d.ts" />
-
-/// <reference path="./class/element/base-element.d.ts" />
-/// <reference path="./class/element/element.d.ts" />
 
 /// <reference path="./class/file.d.ts" />
 /// <reference path="./class/marker.d.ts" />
