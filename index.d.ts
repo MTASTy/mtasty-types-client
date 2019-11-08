@@ -51,8 +51,8 @@
 /// <reference path="./class/browser.d.ts" />
 /// <reference path="./class/camera.d.ts" />
 /// <reference path="./class/effect.d.ts" />
-
 /// <reference path="./class/file.d.ts" />
+/// <reference path="./class/light.d.ts" />
 /// <reference path="./class/marker.d.ts" />
 /// <reference path="./class/object.d.ts" />
 /// <reference path="./class/ped.d.ts" />
@@ -60,6 +60,7 @@
 /// <reference path="./class/player.d.ts" />
 /// <reference path="./class/projectile.d.ts" />
 /// <reference path="./class/radararea.d.ts" />
+/// <reference path="./class/request.d.ts" />
 /// <reference path="./class/resource.d.ts" />
 /// <reference path="./class/searchlight.d.ts" />
 /// <reference path="./class/sound.d.ts" />
