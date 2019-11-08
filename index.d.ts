@@ -22,6 +22,7 @@
 /// <reference path="./class/engine/engine-txd.d.ts" />
 /// <reference path="./class/engine/engine.d.ts" />
 
+/// <reference path="./class/gui/base-gui-element.d.ts" />
 /// <reference path="./class/gui/gui-browser.d.ts" />
 /// <reference path="./class/gui/gui-button.d.ts" />
 /// <reference path="./class/gui/gui-checkbox.d.ts" />
