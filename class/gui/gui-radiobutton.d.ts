@@ -20,7 +20,7 @@ declare class GuiRadioButton extends BaseGuiElement {
    * @returns Returns true if the radio button is selected, false if it is not.
    * @see https://wiki.mtasa.com/wiki/GuiRadioButtonGetSelected
    **/
-  getSelected(GuiRadioButton): boolean;
+  getSelected(guiRadioButton: GuiRadioButton): boolean;
 
   /**
    * This function selects or unselects a radio button.
