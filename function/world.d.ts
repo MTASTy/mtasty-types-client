@@ -208,7 +208,7 @@ declare function setPedsLODDistance(distance: number): boolean;
  * @returns Returns the local blur level.
  * @see https://wiki.mtasa.com/wiki/GetPlayerBlurLevel
  **/
-declare function getPlayerBlurLevel(): number;
+declare function getBlurLevel(): number;
 
 /**
  * This function is used to get the current rain level.
@@ -679,7 +679,7 @@ declare function setNearClipDistance(distance: number): boolean;
  * @returns Return true if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetPlayerBlurLevel
  **/
-declare function setPlayerBlurLevel(level: number): boolean;
+declare function setBlurLevel(level: number): boolean;
 
 /**
  * This function is used to enable or disable occlusions.

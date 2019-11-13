@@ -16,13 +16,6 @@ declare function forcePlayerMap(forceOn: boolean): boolean;
 declare function getLocalPlayer(): Player;
 
 /**
- * This function allows you to check the current blur level of a specified player.
- * @returns Returns the local blur level.
- * @see https://wiki.mtasa.com/wiki/GetPlayerBlurLevel
- **/
-declare function getPlayerBlurLevel(): number;
-
-/**
  * This function returns a player element for the player with the name passed to the function.
  * @param playerName A string containing the name of the player you want to reference
  * @returns Returns a player element for the player with the nickname provided. If there is no player with that name, false is returned.
@@ -141,15 +134,6 @@ declare function isPlayerNametagShowing(thePlayer: Player): boolean;
  * @see https://wiki.mtasa.com/wiki/IsVoiceEnabled
  **/
 declare function isVoiceEnabled(): boolean;
-
-/**
- * Sets the motion blur level on the clients screen.
- * Accepts a value between 0 and 255.
- * @param level The level to set the blur to (default: 36).
- * @returns Returns true if sucessful, false otherwise.
- * @see https://wiki.mtasa.com/wiki/SetPlayerBlurLevel
- **/
-declare function setPlayerBlurLevel(level: number): boolean;
 
 /**
  * This function will show or hide a part of the player's HUD.
