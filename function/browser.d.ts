@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-type SimpleHandler = () => void;
+type SimpleHandler = (...args: any[]) => void;
 
 /**
  * This function checks if the browser can return to the previous page.
