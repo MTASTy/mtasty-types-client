@@ -1,4 +1,4 @@
-declare class BaseGuiElement extends BaseElement {
+declare class BaseGuiElement extends BaseElement<[number, number]> {
   readonly chatBoxInputActive: boolean;
   readonly consoleActive: boolean;
   debugViewActive: boolean;
@@ -66,8 +66,7 @@ declare class BaseGuiElement extends BaseElement {
    * @returns This function returns a positive number in between 0 and 1 of the gui element's current alpha, or false if it could not be retrieved.
    * @see https://wiki.mtasa.com/wiki/GuiGetAlpha
    **/
-  // TODO: BaseElement already contain method getAlpha
-  // getAlpha(): number | false;
+  getAlpha(): number;
 
   /**
    * This function is used to get the current font that is used to draw text in GUI elements.
@@ -191,7 +190,6 @@ declare class BaseGuiElement extends BaseElement {
    * This function sets the dimensions (size) of a GUI element.
    * It refers to the bounding box size for GUI elements.
    * It does not make GUI elements smaller or larger in appearance.
-   * @param guiElement the GUI element whose visibility is to be changed.
    * @param width The desired width setting for the gui element.
    * @param height The desired height setting for the gui element.
    * @param relative This is whether sizes and positioning are relative. If this is true, then all x,y,width,height numbers must be between 0 and 1, representing sizes relative to the parent.

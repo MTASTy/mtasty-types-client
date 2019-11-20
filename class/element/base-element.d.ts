@@ -1,5 +1,5 @@
 /** @customConstructor Element */
-declare class BaseElement {
+declare class BaseElement<PositionType = Vector3> {
   callPropagationEnabled: boolean;
   readonly waitingForGroundToLoad: boolean;
   readonly onScreen: boolean;
@@ -30,7 +30,7 @@ declare class BaseElement {
   // TODO: Check it
   readonly boundingBox: [Vector3, Vector3];
 
-  position: Vector3;
+  position: PositionType;
   rotation: Vector3;
   matrix: Matrix;
   velocity: Vector3;
