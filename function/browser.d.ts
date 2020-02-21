@@ -45,7 +45,7 @@ declare function executeBrowserJavascript(webBrowser: Browser, jsCode: string): 
  * @returns Returns true if the browser was focused or if undefined was passed, false if it failed to focus or the browser does not exist.
  * @see https://wiki.mtasa.com/wiki/FocusBrowser
  **/
-declare function focusBrowser(webBrowser: Browser): boolean | undefined;
+declare function focusBrowser(webBrowser?: Browser): boolean | undefined;
 
 /**
  * This function gets a given property of a specified browser.
