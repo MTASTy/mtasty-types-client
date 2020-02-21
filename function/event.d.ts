@@ -48,7 +48,7 @@ declare function addEvent(eventName: string, allowRemoteTrigger?: boolean): bool
  * @returns Returns true if the event handler was attached successfully. Returns false if the specified event could not be found or any parameters were invalid.
  * @see https://wiki.mtasa.com/wiki/AddEventHandler
  **/
-declare function addEventHandler(eventName: string, attachedTo: BaseElement, handlerFunction: EventHandler, getPropagated?: boolean, priority?: "high" | "normal" | "low"): boolean;
+declare function addEventHandler(eventName: string, attachedTo: BaseElement | BaseGuiElement, handlerFunction: EventHandler, getPropagated?: boolean, priority?: "high" | "normal" | "low"): boolean;
 
 /**
  * This function is used to stop the automatic internal handling of events, for example this can be used to prevent an item being given to a player when they walk over a pickup, by canceling the onPickupUse event.
