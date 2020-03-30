@@ -109,9 +109,6 @@
 /// <reference path="./function/world.d.ts" />
 /// <reference path="./function/xml.d.ts" />
 
-// Global Lua namespace
-declare const _G: any;
-
 // Resource element of the resource the snippet was executed in
 declare const resource: Resource;
 
